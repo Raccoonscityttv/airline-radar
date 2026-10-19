@@ -1,7 +1,7 @@
 {
   "id": "condor",
   "name": "Condor",
-  "stand": "19.10.2026, 14:53 Uhr",
+  "stand": "19.10.2026, 16:34 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
@@ -13,14 +13,18 @@
     "19.10.2026, 14:02 Uhr: Münster/Osnabrück: Palma ab Ende März 2027 ergänzt, Sommerfrequenzen der Winterstrecken und Flugzeugtyp A320neo präzisiert.",
     "19.10.2026, 14:39 Uhr: Arvidsjaur-Eintrag korrigiert: Es ist eine Wiederaufnahme der Charterlinie München – Hannover – Arvidsjaur mit mehr Kapazität, keine neue Strecke.",
     "19.10.2026, 14:53 Uhr: Arvidsjaur: Start laut PasFlights (Hinweis des Nutzers) 07.12.2026.",
+    "19.10.2026, 16:34 Uhr: Berlin – Abu Dhabi seit 15.10.2026 täglich (A320neo), Eintrag angepasst.",
+    "19.10.2026, 16:34 Uhr: Neu: Frankfurt – Tel Aviv täglich seit 01.08.2026.",
+    "19.10.2026, 16:34 Uhr: A330neo-Prüfungen: Airbus liefert wieder aus (02.10.2026), betroffen sind laut AFP-Quelle Auslieferungen von Januar 2021 bis Juli 2026; EASA sieht kein unmittelbares Sicherheitsproblem.",
     "19.10.2026, 13:49 Uhr: Winterflugplan-Stand 18.10.2026 geprüft: Dubai und Sanya nicht enthalten, Abu Dhabi täglich ab BER und FRA."
   ],
   "routen": {
     "neu": [
       { "t": "new", "r": "FMO – HRG · TFS · LPA", "s": "Münster/Osnabrück: Hurghada, Teneriffa Süd, Gran Canaria", "d": "ab 02.11.2026 (TFS), 04.11. (HRG), 05.11. (LPA)", "f": "je 2x pro Woche", "n": "Neuer stationierter A320 (touristik-aktuell). Bleibt bis Nov 2027 (fmo.de). Im Sommer 2027 laut AeroRoutes A320neo: Gran Canaria und Teneriffa dann 1x, Hurghada weiter 2x pro Woche, jeweils ab 01.05.2027." },
-      { "t": "new", "r": "FRA – AUH", "s": "Frankfurt – Abu Dhabi (Etihad-Codeshare)", "d": "ab Winter 2026", "f": "täglich", "n": "Start von Mai auf Oktober 2026 verschoben. Berlin – Abu Dhabi täglich, Abu Dhabi – Bangkok neu ab Oktober 2026." },
+      { "t": "new", "r": "BER · FRA – AUH", "s": "Berlin und Frankfurt – Abu Dhabi (Etihad-Codeshare)", "d": "Berlin seit 15.10.2026, Frankfurt ab Winter 2026/27", "f": "täglich", "n": "Berlin ganzjährig mit A320neo (180 Sitze), ab 25.10. Abflug 10:00 Uhr. Frankfurt wurde für Sommer 2026 ausgesetzt (aviation.direct, 25.03.2026). Der Winterflugplan führt Abu Dhabi täglich ab BER und FRA. Abu Dhabi – Bangkok täglich ab 04.11.2026 (ch-aviation)." },
       { "t": "chg", "r": "FRA – TBS", "s": "Frankfurt – Tiflis", "d": "ab 02.05.2027", "f": "4x, ab 14.05. 5x, ab 25.05. täglich, ab 24.09. 6x, ab 05.10. 4x", "n": "Wiederaufnahme, vorher für 15.06.2026 geplant. E190 von German Airways, deren Einsatz laut AeroRoutes (Stand 04.10.2026, vorläufig) ab 28.03.2027 beginnt." },
       { "t": "chg", "r": "MUC – HAJ – AJR", "s": "München – Hannover – Arvidsjaur (Schweden)", "d": "Wiederaufnahme ab 07.12.2026 (laut PasFlights)", "f": "2x pro Woche", "n": "Charterlinie seit 07.01.2026 (Betrieb bis 16.03.2026), vor allem für Fahrzeugtests der Autoindustrie, daneben Reiseveranstalter. Im Winter 2026/27 A321neo statt A320neo (53 Sitze mehr pro Flug). Andere Quellen nennen 09.11.2026 (AeroRoutes, Juli 2026) und 30.11.2026 (aeroTELEGRAPH, AeroRoutes Januar 2026); der Start ist nicht einheitlich belegt." },
+      { "t": "new", "r": "FRA – TLV", "s": "Frankfurt – Tel Aviv", "d": "seit 01.08.2026", "f": "täglich", "n": "Condor kehrt laut ynetnews nach Israel zurück. Buchbar war der gesamte August, Flugzeugtyp und Laufzeit darüber hinaus sind in den Quellen nicht genannt." },
       { "t": "new", "r": "FRA – ATH", "s": "Frankfurt – Athen", "d": "ab 28.04.2027", "f": "täglich", "n": "A320neo." },
       { "t": "new", "r": "FRA – FLR", "s": "Frankfurt – Florenz", "d": "ab 06.05.2027", "f": "2x täglich", "n": "E190 von German Airways." },
       { "t": "new", "r": "FRA – ARN", "s": "Frankfurt – Stockholm Arlanda", "d": "ab 13.05.2027", "f": "2x täglich", "n": "A319 von Fly Air41." },
@@ -55,7 +59,7 @@
       { "t": "new", "w": "Wet-Lease Fly Air41 (A319) und weitere Partner", "d": "2026/27", "n": "Im Sommer 2026 flogen auch Heston Airlines, European Air Charter und Marabu für Condor. Fly Air41 fliegt ab Mai 2027 Frankfurt – Stockholm." }
     ],
     "minus": [
-      { "t": "chg", "w": "Prüfempfehlung für A330neo nach Werkzeugfund", "d": "Stand 15.10.2026", "n": "Airbus empfiehlt Checks beim nächsten Wartungstermin für alle von 2021 bis Mai 2026 gelieferten A330neo. Betroffen wären Condors 18 Maschinen. Condor fand bei eigenen Kontrollen keine Auffälligkeiten. Wie die Kontrollen angerechnet werden, ist mit Airbus und EASA offen." },
+      { "t": "chg", "w": "Prüfempfehlung für A330neo nach Werkzeugfund", "d": "Stand 15.10.2026", "n": "Airbus empfiehlt Checks beim nächsten Wartungstermin für alle von Januar 2021 bis Juli 2026 gelieferten A330neo (laut AFP-Quelle). Betroffen wären Condors 18 Maschinen. Condor fand bei eigenen Kontrollen keine Auffälligkeiten. Airbus liefert in der Produktion befindliche Maschinen seit 02.10.2026 wieder aus. EASA sieht kein unmittelbares Sicherheitsproblem. Wie die Kontrollen angerechnet werden, ist mit Airbus und EASA offen." },
       { "t": "cut", "w": "Ältere A320-200 und A321-200 (ceo)", "d": "laufend", "n": "Sollen laut Condor noch einige Jahre fliegen, bis die Flottenerneuerung abgeschlossen ist. Konkrete Ausflottungstermine sind nicht veröffentlicht." }
     ]
   },
@@ -85,6 +89,10 @@
     ["FMO: Condor Sommer 2027","https://www.fmo.de/en/article/condor-verkuendet-erweiterung-des-flugplans-ab-fmo-fuer-den-sommer-2027/"],
     ["touristik-aktuell: Winterflugplan FMO","https://www.touristik-aktuell.de/verkehr/flughafen-muenster-osnabrueck-erweitert-winterflugplan/"],
     ["AeroRoutes: Condor Palma 2026","https://www.aeroroutes.com/eng/260325-dens26pmi"],
+    ["aeroTELEGRAPH: Airbus gibt A330neo frei","https://www.aerotelegraph.com/ticker/airbus-gibt-a330-neo-nach-kontrollen-wieder-zur-auslieferung-frei-moegliche/tpggkw7"],
+    ["Gulf News: Condor Berlin – Abu Dhabi","https://gulfnews.com/business/aviation/uae-germany-travel-abu-dhabi-gets-new-berlin-route-as-condor-launches-daily-flights-1.500712870"],
+    ["ch-aviation: Condor Abu Dhabi – Bangkok","https://www.ch-aviation.com/news/168327-condor-to-launch-abu-dhabi-bangkok-fifth-freedom-service"],
+    ["ynetnews: Condor Tel Aviv","https://www.ynetnews.com/travel/article/bjyokrhbfg"],
     ["Reisetopia: Condor E190 Sommer 2027", "https://reisetopia.de/?p=791853"]
   ]
 }
