@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>Airline-Radar bearbeiten</title>
+<style>
+:root { --bg:#f3f5f8; --surface:#fff; --ink:#101a2b; --muted:#5a6577; --line:#d9dfe8; --accent:#0d4f8b; --accent-ink:#fff; --cut:#b3261e; --ok:#0f7a4a;
+  --font: system-ui,-apple-system,"Segoe UI",sans-serif; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0c121c; --surface:#141c29; --ink:#e8edf5; --muted:#9aa6b8; --line:#263145; --accent:#6cb2f0; --accent-ink:#0c121c; --cut:#ff8f86; --ok:#5fd39a; color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--font); font-size:15px; line-height:1.45; padding-bottom:calc(60px + env(safe-area-inset-bottom,0px)); }
+.wrap { max-width:720px; margin:0 auto; padding:calc(20px + env(safe-area-inset-top,0px)) 16px 0; display:flex; flex-direction:column; gap:14px; }
+h1 { font-size:24px; margin:0; font-weight:600; } h2 { font-size:16px; margin:0 0 8px; }
+a { color:var(--accent); }
+.card { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:14px; }
+label { display:block; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin:10px 0 4px; }
+input, select, textarea { width:100%; font:inherit; font-size:16px; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--bg); color:var(--ink); }
+textarea { min-height:80px; resize:vertical; }
+button { font:inherit; font-size:15px; padding:10px 14px; border-radius:8px; border:1px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer; }
+button.primary { background:var(--accent); border-color:var(--accent); color:var(--accent-ink); font-weight:600; }
+button.danger { color:var(--cut); }
+button:disabled { opacity:.5; }
+.row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.row > * { flex:0 0 auto; }
+.tabs { display:flex; gap:6px; flex-wrap:wrap; }
+.tabs button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:var(--accent-ink); }
+.item { display:flex; gap:10px; justify-content:space-between; align-items:flex-start; padding:10px 0; border-top:1px solid var(--line); }
+.item:first-child { border-top:0; }
+.item b { display:block; } .item small { color:var(--muted); }
+.item .btns { display:flex; gap:6px; flex:none; }
+.item .btns button { padding:6px 10px; font-size:14px; }
+.msg { padding:10px 12px; border-radius:8px; border:1px solid var(--line); font-size:14px; }
+.msg.err { color:var(--cut); border-color:var(--cut); } .msg.ok { color:var(--ok); border-color:var(--ok); }
+.muted { color:var(--muted); font-size:13px; }
+.bar { position:sticky; bottom:0; background:var(--bg); padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px)); display:flex; gap:8px; align-items:center; }
+.bar .primary { flex:1; }
+[hidden] { display:none !important; }
+.grid2 { display:grid; grid-template-columns:1fr 90px; gap:8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><h1>Bearbeiten</h1><a href="./">← zurück zur Übersicht</a></header>
+
+  <section class="card" id="auth">
+    <h2>Zugang</h2>
+    <p class="muted">Du brauchst einen GitHub-Zugangsschlüssel (Fine-grained token) für das Repo <b>Raccoonscityttv/airline-radar</b> mit der Berechtigung <b>Contents: Read and write</b>. Er bleibt nur in diesem Browser gespeichert.</p>
+    <label for="tok">Zugangsschlüssel</label>
+    <input id="tok" type="password" autocomplete="off" placeholder="github_pat_…">
+    <div class="row" style="margin-top:10px">
+      <button class="primary" id="saveTok" type="button">Speichern und laden</button>
+      <button id="forget" type="button" hidden>Schlüssel entfernen</button>
+    </div>
+  </section>
+
+  <div id="msg" class="msg" hidden></div>
+
+  <section id="editor" hidden>
+    <div class="card">
+      <label for="air">Airline</label>
+      <select id="air"></select>
+      <label>Bereich</label>
+      <div class="tabs" id="tabs"></div>
+    </div>
+
+    <div class="card" id="listCard" style="margin-top:14px">
+      <div class="row" style="justify-content:space-between"><h2 id="listTitle" style="margin:0"></h2><button id="add" type="button" class="primary">+ Neu</button></div>
+      <div id="list"></div>
+    </div>
+
+    <div class="card" id="form" hidden style="margin-top:14px"></div>
+
+    <div class="card" style="margin-top:14px">
+      <label for="note">Notiz für das Änderungsprotokoll (optional)</label>
+      <input id="note" placeholder="z. B. Neue Strecke Köln – Faro ergänzt">
+    </div>
+
+    <div class="bar">
+      <span class="muted" id="dirty"></span>
+      <button class="primary" id="commit" type="button" disabled>Änderungen veröffentlichen</button>
+    </div>
+  </section>
+</div>
+
+<script>
+const OWNER = "Raccoonscityttv", REPO = "airline-radar", BRANCH = "main";
+const API = `https://api.github.com/repos/${OWNER}/${REPO}/contents/`;
+const $ = id => document.getElementById(id);
+const ST = [["new", "Neu"], ["chg", "Geändert"], ["cut", "Entfällt"]];
+const SECTIONS = {
+  rneu: { label: "Routen neu", get: d => d.routen.neu, kind: "route" },
+  rweg: { label: "Routen entfallen", get: d => d.routen.weg, kind: "route" },
+  fplus: { label: "Flotte Zugänge", get: d => d.flotte.plus, kind: "fleet" },
+  fminus: { label: "Flotte Abgänge", get: d => d.flotte.minus, kind: "fleet" },
+  bestand: { label: "Bestand", kind: "stock" },
+};
+const ROUTE_F = [["r", "Strecke (Codes)", "FRA – AUH"], ["s", "Beschreibung", "Frankfurt – Abu Dhabi"], ["d", "Zeitpunkt", "ab 28.03.2027"], ["f", "Frequenz", "täglich"], ["n", "Hinweis", "", true]];
+const FLEET_F = [["w", "Flugzeug / Ereignis", "A330-900 D-ANRR"], ["d", "Zeitpunkt", "2. Hälfte Nov 2026"], ["n", "Hinweis", "", true]];
+
+let airlines = [], data = {}, shas = {}, cur = null, sec = "rneu", editing = null, changed = new Set();
+
+function msg(text, cls) { const m = $("msg"); m.hidden = !text; m.className = "msg " + (cls || ""); m.textContent = text || ""; }
+const tok = () => { try { return localStorage.getItem("ar_token") || ""; } catch (e) { return ""; } };
+function hdr() { return { "Authorization": "Bearer " + tok(), "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" }; }
+const b64d = s => decodeURIComponent(escape(atob(s.replace(/\n/g, ""))));
+const b64e = s => btoa(unescape(encodeURIComponent(s)));
+
+async function gget(path) {
+  const r = await fetch(API + path + "?ref=" + BRANCH + "&t=" + Date.now(), { headers: hdr(), cache: "no-store" });
+  if (r.status === 401) throw new Error("Zugangsschlüssel ungültig oder abgelaufen.");
+  if (r.status === 404) throw new Error("Datei oder Repo nicht gefunden. Prüfe, ob der Schlüssel Zugriff auf das Repo hat.");
+  if (!r.ok) throw new Error("GitHub-Fehler " + r.status);
+  const j = await r.json();
+  return { json: JSON.parse(b64d(j.content)), sha: j.sha };
+}
+
+function ser(d) { // kompakt: ein Eintrag pro Zeile
+  const one = o => JSON.stringify(o);
+  const arr = (a, ind) => a.length ? "[\n" + a.map(x => ind + "  " + one(x)).join(",\n") + "\n" + ind + "]" : "[]";
+  return "{\n" +
+    `  "id": ${one(d.id)},\n  "name": ${one(d.name)},\n  "stand": ${one(d.stand)},\n` +
+    `  "log": ${arr(d.log, "  ")},\n` +
+    `  "routen": {\n    "neu": ${arr(d.routen.neu, "    ")},\n    "weg": ${arr(d.routen.weg, "    ")}\n  },\n` +
+    `  "flotte": {\n    "bestandStand": ${one(d.flotte.bestandStand)},\n    "bestand": [${d.flotte.bestand.map(one).join(", ")}],\n` +
+    `    "plus": ${arr(d.flotte.plus, "    ")},\n    "minus": ${arr(d.flotte.minus, "    ")}\n  },\n` +
+    `  "quellen": ${arr(d.quellen, "  ")}\n}\n`;
+}
+
+async function loadAll() {
+  msg("Lade Daten …");
+  try {
+    const a = await gget("data/airlines.json");
+    airlines = a.json; data = {}; shas = {}; changed = new Set();
+    for (const x of airlines) { const r = await gget(`data/${x.id}.json`); data[x.id] = r.json; shas[x.id] = r.sha; }
+    cur = airlines[0].id;
+    $("air").innerHTML = airlines.map(x => `<option value="${x.id}">${x.name}</option>`).join("");
+    $("editor").hidden = false; $("forget").hidden = false; msg("");
+    renderTabs(); renderList();
+  } catch (e) { msg(e.message, "err"); $("editor").hidden = true; }
+}
+
+function renderTabs() {
+  $("tabs").innerHTML = Object.entries(SECTIONS).map(([k, v]) => `<button type="button" data-k="${k}" aria-pressed="${k === sec}">${v.label}</button>`).join("");
+  $("tabs").querySelectorAll("button").forEach(b => b.onclick = () => { sec = b.dataset.k; editing = null; $("form").hidden = true; renderTabs(); renderList(); });
+}
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+function markDirty() { changed.add(cur); $("commit").disabled = false; $("dirty").textContent = changed.size + " Airline(s) geändert"; }
+
+function renderList() {
+  const S = SECTIONS[sec], d = data[cur];
+  $("listTitle").textContent = S.label;
+  $("add").textContent = S.kind === "stock" ? "+ Typ" : "+ Neu";
+  let h = "";
+  if (S.kind === "stock") {
+    h = d.flotte.bestand.map((b, i) => `<div class="item"><div><b>${esc(b[0])}</b><small>${b[1]} Flugzeuge</small></div><div class="btns"><button data-e="${i}">Ändern</button><button class="danger" data-x="${i}">Löschen</button></div></div>`).join("") +
+      `<label for="bs">Stand-Text zum Bestand</label><input id="bs" value="${esc(d.flotte.bestandStand)}">`;
+  } else {
+    const L = S.get(d);
+    h = L.length ? L.map((e, i) => `<div class="item"><div><b>${esc(e.r || e.w)}</b><small>${esc(e.d || "")}${e.s ? " · " + esc(e.s) : ""}</small></div><div class="btns"><button data-e="${i}">Ändern</button><button class="danger" data-x="${i}">Löschen</button></div></div>`).join("") : '<p class="muted">Keine Einträge.</p>';
+  }
+  $("list").innerHTML = h;
+  $("list").querySelectorAll("[data-e]").forEach(b => b.onclick = () => openForm(+b.dataset.e));
+  $("list").querySelectorAll("[data-x]").forEach(b => b.onclick = () => del(+b.dataset.x));
+  const bs = $("bs"); if (bs) bs.onchange = () => { d.flotte.bestandStand = bs.value; markDirty(); };
+}
+
+function del(i) {
+  const S = SECTIONS[sec], d = data[cur];
+  if (!confirm("Eintrag wirklich löschen?")) return;
+  if (S.kind === "stock") d.flotte.bestand.splice(i, 1); else S.get(d).splice(i, 1);
+  markDirty(); renderList();
+}
+
+function openForm(i) {
+  const S = SECTIONS[sec], d = data[cur]; editing = i;
+  let h = `<h2>${i == null ? "Neuer Eintrag" : "Eintrag ändern"}</h2>`;
+  if (S.kind === "stock") {
+    const b = i == null ? ["", 0] : d.flotte.bestand[i];
+    h += `<label>Flugzeugtyp</label><input id="f0" value="${esc(b[0])}" placeholder="A330-900"><label>Anzahl</label><input id="f1" type="number" inputmode="numeric" min="0" value="${b[1]}">`;
+  } else {
+    const e = i == null ? { t: sec === "rweg" || sec === "fminus" ? "cut" : "new" } : S.get(d)[i];
+    h += `<label>Status</label><select id="ft">${ST.map(([v, l]) => `<option value="${v}"${e.t === v ? " selected" : ""}>${l}</option>`).join("")}</select>`;
+    (S.kind === "route" ? ROUTE_F : FLEET_F).forEach(([k, l, ph, ta]) => {
+      h += `<label>${l}</label>` + (ta ? `<textarea data-k="${k}">${esc(e[k])}</textarea>` : `<input data-k="${k}" value="${esc(e[k])}" placeholder="${esc(ph)}">`);
+    });
+  }
+  h += `<div class="row" style="margin-top:14px"><button class="primary" id="ok" type="button">Übernehmen</button><button id="cancel" type="button">Abbrechen</button></div>`;
+  $("form").innerHTML = h; $("form").hidden = false; $("form").scrollIntoView({ behavior: "smooth", block: "start" });
+  $("cancel").onclick = () => { $("form").hidden = true; };
+  $("ok").onclick = () => {
+    if (S.kind === "stock") {
+      const t = $("f0").value.trim(); if (!t) return alert("Bitte Typ eingeben.");
+      const row = [t, Math.max(0, parseInt($("f1").value, 10) || 0)];
+      i == null ? d.flotte.bestand.push(row) : d.flotte.bestand[i] = row;
+    } else {
+      const e = { t: $("ft").value };
+      $("form").querySelectorAll("[data-k]").forEach(x => { const v = x.value.trim(); if (v) e[x.dataset.k] = v; });
+      if (!(e.r || e.w)) return alert("Bitte " + (S.kind === "route" ? "eine Strecke" : "ein Flugzeug") + " eingeben.");
+      const L = S.get(d); i == null ? L.unshift(e) : L[i] = e;
+    }
+    $("form").hidden = true; markDirty(); renderList();
+  };
+}
+
+const today = () => new Date().toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" });
+
+async function commit() {
+  $("commit").disabled = true; msg("Veröffentliche …");
+  try {
+    for (const id of changed) {
+      const d = data[id], note = $("note").value.trim();
+      d.stand = today();
+      d.log.unshift(`${today()}: ${note || "Manuell aktualisiert."}`);
+      const body = { message: `Daten ${d.name}: ${note || "manuell aktualisiert"}`, content: b64e(ser(d)), sha: shas[id], branch: BRANCH };
+      const r = await fetch(API + `data/${id}.json`, { method: "PUT", headers: { ...hdr(), "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      if (r.status === 409 || r.status === 422) throw new Error("Die Datei wurde zwischenzeitlich geändert. Lade neu und wiederhole die Änderung.");
+      if (r.status === 403 || r.status === 401) throw new Error("Keine Schreibrechte. Der Schlüssel braucht Contents: Read and write.");
+      if (!r.ok) throw new Error("GitHub-Fehler " + r.status);
+      shas[id] = (await r.json()).content.sha;
+    }
+    changed = new Set(); $("note").value = ""; $("dirty").textContent = "";
+    msg("Gespeichert. Die Seite ist in ein bis zwei Minuten aktualisiert.", "ok");
+  } catch (e) { msg(e.message, "err"); $("commit").disabled = false; }
+}
+
+$("saveTok").onclick = () => { const v = $("tok").value.trim(); if (!v) return; try { localStorage.setItem("ar_token", v); } catch (e) {} $("tok").value = ""; loadAll(); };
+$("forget").onclick = () => { try { localStorage.removeItem("ar_token"); } catch (e) {} location.reload(); };
+$("air").onchange = e => { cur = e.target.value; $("form").hidden = true; renderList(); };
+$("add").onclick = () => openForm(null);
+$("commit").onclick = commit;
+window.addEventListener("beforeunload", e => { if (changed.size) { e.preventDefault(); e.returnValue = ""; } });
+if (tok()) loadAll(); else msg("Bitte zuerst den Zugangsschlüssel eintragen.");
+</script>
+</body>
+</html>

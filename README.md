@@ -11,9 +11,16 @@ Die Seite läuft über GitHub Pages und zeigt alle Einträge in einer Liste.
 - **Details:** Ein Tipp auf eine Zeile zeigt Frequenz und Hinweis. „Alle aufklappen“ öffnet alles.
 - **Lesezeichen:** Die Auswahl steht im Link, zum Beispiel `?airlines=condor&bereich=routen&q=hurghada` oder `?status=cut`.
 
+## Selbst aktualisieren
+
+Auf `edit.html` (Link unten auf der Seite) kannst du Strecken, Flugzeuge und Bestand hinzufügen, ändern und löschen. „Änderungen veröffentlichen“ speichert direkt ins Repo, die Seite aktualisiert sich nach ein bis zwei Minuten.
+
+Einmalig brauchst du einen GitHub-Zugangsschlüssel: GitHub, Settings, Developer settings, Personal access tokens, Fine-grained tokens. Nur Repo `airline-radar` auswählen, Berechtigung Contents auf „Read and write“. Der Schlüssel wird nur im Browser gespeichert.
+
 ## Aufbau
 
 - `index.html` ist die Seite
+- `edit.html` ist die Bearbeitungsseite
 - `data/airlines.json` listet die Airlines (Kennung und Anzeigename)
 - `data/<kennung>.json` enthält je Airline `routen` (`neu`, `weg`), `flotte` (`bestand`, `plus`, `minus`), `log` und `quellen`
 
