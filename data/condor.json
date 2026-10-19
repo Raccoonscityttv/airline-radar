@@ -1,7 +1,7 @@
 {
   "id": "condor",
   "name": "Condor",
-  "stand": "19.10.2026, 14:02 Uhr",
+  "stand": "19.10.2026, 14:39 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
@@ -11,6 +11,7 @@
     "19.10.2026, 13:49 Uhr: Frankfurt – Tiflis: Frequenzen bis Oktober 2027 ergänzt, E190-Betrieb ab 28.03.2027 geplant.",
     "19.10.2026, 13:49 Uhr: Hurghada-Aufstockung mit genauen Zeiträumen (FRA 12.12.–10.01., STR 15.12.–08.01.).",
     "19.10.2026, 14:02 Uhr: Münster/Osnabrück: Palma ab Ende März 2027 ergänzt, Sommerfrequenzen der Winterstrecken und Flugzeugtyp A320neo präzisiert.",
+    "19.10.2026, 14:39 Uhr: Arvidsjaur-Eintrag korrigiert: Es ist eine Wiederaufnahme der Charterlinie München – Hannover – Arvidsjaur mit mehr Kapazität, keine neue Strecke.",
     "19.10.2026, 13:49 Uhr: Winterflugplan-Stand 18.10.2026 geprüft: Dubai und Sanya nicht enthalten, Abu Dhabi täglich ab BER und FRA."
   ],
   "routen": {
@@ -18,7 +19,7 @@
       { "t": "new", "r": "FMO – HRG · TFS · LPA", "s": "Münster/Osnabrück: Hurghada, Teneriffa Süd, Gran Canaria", "d": "ab 02.11.2026 (TFS), 04.11. (HRG), 05.11. (LPA)", "f": "je 2x pro Woche", "n": "Neuer stationierter A320 (touristik-aktuell). Bleibt bis Nov 2027 (fmo.de). Im Sommer 2027 laut AeroRoutes A320neo: Gran Canaria und Teneriffa dann 1x, Hurghada weiter 2x pro Woche, jeweils ab 01.05.2027." },
       { "t": "new", "r": "FRA – AUH", "s": "Frankfurt – Abu Dhabi (Etihad-Codeshare)", "d": "ab Winter 2026", "f": "täglich", "n": "Start von Mai auf Oktober 2026 verschoben. Berlin – Abu Dhabi täglich, Abu Dhabi – Bangkok neu ab Oktober 2026." },
       { "t": "chg", "r": "FRA – TBS", "s": "Frankfurt – Tiflis", "d": "ab 02.05.2027", "f": "4x, ab 14.05. 5x, ab 25.05. täglich, ab 24.09. 6x, ab 05.10. 4x", "n": "Wiederaufnahme, vorher für 15.06.2026 geplant. E190 von German Airways, deren Einsatz laut AeroRoutes (Stand 04.10.2026, vorläufig) ab 28.03.2027 beginnt." },
-      { "t": "new", "r": "HAJ – AJR", "s": "Hannover – Arvidsjaur (Schweden)", "d": "ab 09.11.2026", "f": "2x pro Woche", "n": "Linienangebot im Charter-Programm. A321neo ersetzt A320, 53 Sitze mehr pro Flug." },
+      { "t": "chg", "r": "MUC – HAJ – AJR", "s": "München – Hannover – Arvidsjaur (Schweden)", "d": "Wiederaufnahme im Winter 2026/27, Start laut AeroRoutes 09.11.2026 (aerotelegraph: 30.11.2026)", "f": "2x pro Woche", "n": "Charterlinie seit 07.01.2026 (Betrieb bis 16.03.2026), vor allem für Fahrzeugtests der Autoindustrie, daneben Reiseveranstalter. Im Winter 2026/27 A321neo statt A320neo (53 Sitze mehr pro Flug). Die Quellen nennen unterschiedliche Starttermine." },
       { "t": "new", "r": "FRA – ATH", "s": "Frankfurt – Athen", "d": "ab 28.04.2027", "f": "täglich", "n": "A320neo." },
       { "t": "new", "r": "FRA – FLR", "s": "Frankfurt – Florenz", "d": "ab 06.05.2027", "f": "2x täglich", "n": "E190 von German Airways." },
       { "t": "new", "r": "FRA – ARN", "s": "Frankfurt – Stockholm Arlanda", "d": "ab 13.05.2027", "f": "2x täglich", "n": "A319 von Fly Air41." },
@@ -74,6 +75,8 @@
     ["Frankfurtflyer: Condor mit Embraer 190","https://frankfurtflyer.de/condor-hat-nun-auch-embraer-190-in-der-flotte-koennten-eigene-regionaljets-langfristig-sinn-machen/"],
     ["AeroRoutes: Condor Fly Air41 A319 (NS25)","https://www.aeroroutes.com/eng/250227-dens25319"],
     ["AeroRoutes: Condor NS27 E190 (vorläufig)","https://www.aeroroutes.com/eng/261007-dens27e90"],
+    ["aviation.direct: Condor Arvidsjaur","https://aviation.direct/condor-etabliert-charterfluege-nach-arvidsjaur-fuer-die-wintersaison"],
+    ["AeroRoutes: Condor Arvidsjaur 1Q26","https://www.aeroroutes.com/eng/260115-de1q26ajr"],
     ["AeroRoutes: Hannover – Arvidsjaur NW26","https://www.aeroroutes.com/eng/260709-denw26ajr"],
     ["AeroRoutes: Münster NW26","https://www.aeroroutes.com/eng/260709-denw26fmo"],
     ["airliners.de: Hurghada Winter 2026/27","https://www.airliners.de/condor-hurghada-winterflugplan-2026-27/89365"],
