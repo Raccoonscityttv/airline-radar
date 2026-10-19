@@ -267,7 +267,7 @@ function render() {
 
   const chosen = AIRLINES.filter(a => st.airlines.has(a.id));
   const stands = chosen.map(a => DATA[a.id].stand);
-  document.getElementById("stand").textContent = stands.length ? "Stand " + [...new Set(stands)].join(" / ") : "";
+  document.getElementById("stand").textContent = stands.length ? "Zuletzt aktualisiert: " + [...new Set(stands)].join(" / ") : "";
   const logs = chosen.flatMap(a => DATA[a.id].log.map(l => "<li><b>" + esc(a.name) + ":</b> " + esc(l) + "</li>"));
   document.getElementById("logList").innerHTML = logs.join("");
   document.getElementById("logPanel").hidden = !logs.length;

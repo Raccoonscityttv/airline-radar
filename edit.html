@@ -205,7 +205,7 @@ function openForm(i) {
   };
 }
 
-const today = () => new Date().toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" });
+const today = () => new Date().toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" }) + ", " + new Date().toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" }) + " Uhr";
 
 async function commit() {
   $("commit").disabled = true; msg("Veröffentliche …");
