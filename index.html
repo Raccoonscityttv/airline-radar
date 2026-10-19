@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Airline-Radar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: Kopf mit Stand, Auswahl (Airline und Bereich), Zusammenfassung, je Airline eine Karte mit Flotte und Routen. Daten kommen aus data/*.json. */
+:root {
+  --bg: #f3f5f8; --surface: #ffffff; --ink: #101a2b; --muted: #5a6577; --line: #d9dfe8;
+  --accent: #0d4f8b; --accent-ink: #ffffff; --bar: #9db9d6;
+  --new: #0f7a4a; --new-bg: #dff3e8; --cut: #b3261e; --cut-bg: #fbe4e1; --chg: #8a5a00; --chg-bg: #fdefcf;
+  --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c121c; --surface: #141c29; --ink: #e8edf5; --muted: #9aa6b8; --line: #263145;
+    --accent: #6cb2f0; --accent-ink: #0c121c; --bar: #2f5e8c; --new: #5fd39a; --new-bg: #123626;
+    --cut: #ff8f86; --cut-bg: #3d1a18; --chg: #f0c04f; --chg-bg: #3a2d0e; color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.5;
+  padding-block: calc(24px + env(safe-area-inset-top, 0px)) calc(48px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+h1 { font-size: 28px; line-height: 1.15; margin: 0; font-weight: 600; text-wrap: balance; letter-spacing: -0.01em; }
+h2 { font-size: 20px; margin: 0; font-weight: 600; }
+h3 { font-size: 11px; margin: 0; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.stand { font-family: var(--mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+header { display: flex; flex-direction: column; gap: 8px; }
+header p { margin: 0; color: var(--muted); max-width: 65ch; }
+.controls { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; display: flex; flex-wrap: wrap; gap: 16px 32px; }
+fieldset { border: 0; padding: 0; margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+legend { padding: 0; margin-bottom: 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chips button { font: inherit; font-size: 14px; padding: 6px 14px; border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 999px; cursor: pointer; }
+.chips button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.chips button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sum { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.sum div { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; }
+.sum b { display: block; font-family: var(--mono); font-size: 26px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.sum span { font-size: 13px; color: var(--muted); }
+.sum .n b { color: var(--new); } .sum .c b { color: var(--cut); } .sum .m b { color: var(--chg); }
+.board { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.board-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 12px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.sect { border-bottom: 1px solid var(--line); }
+.sect:last-child { border-bottom: 0; }
+.sect > h3 { padding: 12px 16px 4px; }
+.sub { padding: 8px 16px 2px; font-size: 13px; font-weight: 600; }
+.fleet { padding: 8px 16px 14px; display: flex; flex-direction: column; gap: 10px; }
+.frow { display: grid; grid-template-columns: minmax(96px, 150px) 1fr 40px; gap: 12px; align-items: center; }
+.frow .ty { font-family: var(--mono); font-size: 13px; font-weight: 500; }
+.frow .tr { background: var(--line); height: 10px; border-radius: 3px; overflow: hidden; }
+.frow .fl { background: var(--bar); height: 100%; }
+.frow .ct { font-family: var(--mono); font-size: 14px; text-align: right; font-variant-numeric: tabular-nums; }
+.fnote { font-size: 13px; color: var(--muted); margin: 0; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; min-width: 620px; }
+th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; padding: 8px 16px; border-bottom: 1px solid var(--line); }
+td { padding: 10px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+.route { font-family: var(--mono); font-size: 14px; font-weight: 500; white-space: nowrap; }
+.what { font-weight: 500; }
+.sl { display: block; font-family: var(--font); font-size: 12px; color: var(--muted); font-weight: 400; white-space: normal; }
+.date { font-family: var(--mono); font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pill { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+.pill.new { background: var(--new-bg); color: var(--new); }
+.pill.cut { background: var(--cut-bg); color: var(--cut); }
+.pill.chg { background: var(--chg-bg); color: var(--chg); }
+.note { font-size: 13px; color: var(--muted); display: block; margin-top: 2px; font-weight: 400; }
+.empty { padding: 12px 16px 16px; color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; }
+.card ul { margin: 8px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+.card li { font-size: 13px; overflow-wrap: anywhere; }
+.card a { color: var(--accent); }
+.hint { font-size: 13px; color: var(--muted); max-width: 70ch; margin: 0; }
+.err { background: var(--cut-bg); color: var(--cut); border-radius: 6px; padding: 12px 16px; }
+@media (max-width: 520px) { h1 { font-size: 24px; } td, th { padding-inline: 12px; } .frow { grid-template-columns: 96px 1fr 32px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="stand" id="stand">Lade Daten</div>
+    <h1>Airline-Radar</h1>
+    <p>Neue, geänderte und gestrichene Strecken sowie Flottenänderungen. Wähle Airlines und Bereich, die Auswahl bleibt im Link erhalten.</p>
+  </header>
+
+  <section class="controls" aria-label="Auswahl">
+    <fieldset>
+      <legend>Airline</legend>
+      <div class="chips" id="airlineChips"></div>
+    </fieldset>
+    <fieldset>
+      <legend>Bereich</legend>
+      <div class="chips" id="scopeChips">
+        <button type="button" data-s="beides" id="scope-beides">Flotte und Routen</button>
+        <button type="button" data-s="flotte" id="scope-flotte">Nur Flotte</button>
+        <button type="button" data-s="routen" id="scope-routen">Nur Routen</button>
+      </div>
+    </fieldset>
+  </section>
+
+  <div id="error"></div>
+  <section class="sum" id="sum" aria-label="Zusammenfassung"></section>
+  <div id="boards" style="display:flex;flex-direction:column;gap:24px"></div>
+  <section class="card" id="logCard">
+    <h2>Seit der letzten Aktualisierung</h2>
+    <ul id="logList"></ul>
+  </section>
+  <p class="hint">Angaben stammen aus öffentlichen Medienberichten und sind Planstände. Bestandszahlen nennen den Stand ihrer Quelle. Wet-Lease-Flugzeuge gehören den Partnerairlines und zählen nicht zum eigenen Bestand.</p>
+  <section class="card" id="srcCard">
+    <h2>Quellen</h2>
+    <ul id="srcList"></ul>
+  </section>
+</div>
+
+<script>
+const LABEL = { new: "Neu", cut: "Gestrichen", chg: "Geändert" };
+const FLABEL = { new: "Zugang", cut: "Abgang", chg: "Änderung" };
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+let AIRLINES = [];   // [{id, name}]
+let DATA = {};       // id -> Daten
+const sel = { airlines: new Set(), scope: "beides" };
+
+function readUrl() {
+  const p = new URLSearchParams(location.search);
+  const a = (p.get("airlines") || "").split(",").filter(x => AIRLINES.some(l => l.id === x));
+  sel.airlines = new Set(a.length ? a : AIRLINES.map(l => l.id));
+  const s = p.get("bereich");
+  sel.scope = ["beides", "flotte", "routen"].includes(s) ? s : "beides";
+}
+function writeUrl() {
+  const p = new URLSearchParams();
+  if (sel.airlines.size !== AIRLINES.length) p.set("airlines", [...sel.airlines].join(","));
+  if (sel.scope !== "beides") p.set("bereich", sel.scope);
+  const q = p.toString();
+  try { history.replaceState(null, "", location.pathname + (q ? "?" + q : "")); } catch (e) {}
+}
+
+function routeTable(list) {
+  if (!list.length) return '<div class="empty">Keine Einträge.</div>';
+  return '<div class="scroll"><table><thead><tr><th>Strecke</th><th>Status</th><th>Zeitpunkt</th><th>Frequenz</th></tr></thead><tbody>' +
+    list.map(x => '<tr><td><span class="route">' + esc(x.r) + '<span class="sl">' + esc(x.s) + "</span></span>" +
+      (x.n ? '<span class="note">' + esc(x.n) + "</span>" : "") + "</td>" +
+      '<td><span class="pill ' + x.t + '">' + LABEL[x.t] + "</span></td>" +
+      '<td class="date">' + esc(x.d) + "</td><td>" + esc(x.f) + "</td></tr>").join("") +
+    "</tbody></table></div>";
+}
+function fleetTable(list) {
+  if (!list.length) return '<div class="empty">Keine Einträge.</div>';
+  return '<div class="scroll"><table><thead><tr><th>Flugzeug oder Thema</th><th>Status</th><th>Zeitpunkt</th></tr></thead><tbody>' +
+    list.map(x => '<tr><td><span class="what">' + esc(x.w) + '</span><span class="note">' + esc(x.n) + "</span></td>" +
+      '<td><span class="pill ' + x.t + '">' + FLABEL[x.t] + "</span></td>" +
+      '<td class="date">' + esc(x.d) + "</td></tr>").join("") +
+    "</tbody></table></div>";
+}
+function fleetBars(f) {
+  const max = Math.max.apply(null, f.bestand.map(b => b[1]));
+  return '<div class="fleet">' + f.bestand.map(b =>
+    '<div class="frow"><span class="ty">' + esc(b[0]) + '</span><div class="tr"><div class="fl" style="width:' + Math.round(b[1] / max * 100) + '%"></div></div><span class="ct">' + b[1] + "</span></div>").join("") +
+    '<p class="fnote">' + esc(f.bestandStand) + "</p></div>";
+}
+
+function render() {
+  document.querySelectorAll("#airlineChips button").forEach(b => b.setAttribute("aria-pressed", sel.airlines.has(b.dataset.id) ? "true" : "false"));
+  document.querySelectorAll("#scopeChips button").forEach(b => b.setAttribute("aria-pressed", b.dataset.s === sel.scope ? "true" : "false"));
+  writeUrl();
+
+  const showF = sel.scope !== "routen", showR = sel.scope !== "flotte";
+  const chosen = AIRLINES.filter(a => sel.airlines.has(a.id) && DATA[a.id]);
+  const items = [];
+  chosen.forEach(a => {
+    const d = DATA[a.id];
+    if (showR) items.push(...d.routen.neu, ...d.routen.weg);
+    if (showF) items.push(...d.flotte.plus, ...d.flotte.minus);
+  });
+  const cnt = t => items.filter(x => x.t === t).length;
+  document.getElementById("sum").innerHTML =
+    '<div class="n"><b>' + cnt("new") + "</b><span>Neu oder Zugang</span></div>" +
+    '<div class="m"><b>' + cnt("chg") + "</b><span>Geändert</span></div>" +
+    '<div class="c"><b>' + cnt("cut") + "</b><span>Gestrichen oder Abgang</span></div>";
+
+  document.getElementById("boards").innerHTML = chosen.map(a => {
+    const d = DATA[a.id];
+    let h = '<section class="board"><div class="board-head"><h2>' + esc(a.name) + "</h2><h3>Stand " + esc(d.stand) + "</h3></div>";
+    if (showF) {
+      h += '<div class="sect"><h3>Flotte</h3>' + fleetBars(d.flotte) +
+        '<div class="sub">Zugänge und Änderungen</div>' + fleetTable(d.flotte.plus) +
+        '<div class="sub">Abgänge und Risiken</div>' + fleetTable(d.flotte.minus) + "</div>";
+    }
+    if (showR) {
+      h += '<div class="sect"><h3>Routen</h3>' +
+        '<div class="sub">Neu und geändert</div>' + routeTable(d.routen.neu) +
+        '<div class="sub">Entfällt</div>' + routeTable(d.routen.weg) + "</div>";
+    }
+    return h + "</section>";
+  }).join("");
+
+  const stands = chosen.map(a => DATA[a.id].stand);
+  document.getElementById("stand").textContent = stands.length ? "Stand " + stands.join(" / ") : "Keine Airline gewählt";
+  document.getElementById("logList").innerHTML = chosen.flatMap(a => DATA[a.id].log.map(l => "<li><b>" + esc(a.name) + ":</b> " + esc(l) + "</li>")).join("");
+  const seen = new Set();
+  document.getElementById("srcList").innerHTML = chosen.flatMap(a => DATA[a.id].quellen).filter(q => !seen.has(q[1]) && seen.add(q[1]))
+    .map(q => '<li><a href="' + esc(q[1]) + '" target="_blank" rel="noopener">' + esc(q[0]) + "</a></li>").join("");
+}
+
+function setup() {
+  const ac = document.getElementById("airlineChips");
+  ac.innerHTML = AIRLINES.map(a => '<button type="button" data-id="' + esc(a.id) + '" id="airline-' + esc(a.id) + '">' + esc(a.name) + "</button>").join("");
+  ac.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+    if (sel.airlines.has(b.dataset.id)) { if (sel.airlines.size > 1) sel.airlines.delete(b.dataset.id); }
+    else sel.airlines.add(b.dataset.id);
+    render();
+  }));
+  document.querySelectorAll("#scopeChips button").forEach(b => b.addEventListener("click", () => { sel.scope = b.dataset.s; render(); }));
+}
+
+fetch("data/airlines.json").then(r => r.json()).then(list => {
+  AIRLINES = list;
+  return Promise.all(list.map(a => fetch("data/" + a.id + ".json").then(r => r.json()).then(d => { DATA[a.id] = d; })));
+}).then(() => { readUrl(); setup(); render(); })
+  .catch(() => {
+    document.getElementById("stand").textContent = "";
+    document.getElementById("error").innerHTML = '<div class="err">Die Daten konnten nicht geladen werden. Öffne die Seite über die GitHub-Pages-Adresse, nicht als lokale Datei.</div>';
+    document.getElementById("logCard").hidden = true;
+    document.getElementById("srcCard").hidden = true;
+  });
+</script>
+</body>
+</html>

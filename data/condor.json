@@ -1,0 +1,64 @@
+{
+  "id": "condor",
+  "name": "Condor",
+  "stand": "19.10.2026",
+  "log": [
+    "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche."
+  ],
+  "routen": {
+    "neu": [
+      { "t": "new", "r": "FMO – HRG · TFS · LPA", "s": "Münster/Osnabrück: Hurghada, Teneriffa Süd, Gran Canaria", "d": "ab 04.11.2026", "f": "je 2x pro Woche", "n": "Neuer stationierter A320. Bleibt im Sommer 2027, Gran Canaria dann 1x pro Woche." },
+      { "t": "new", "r": "FRA – AUH", "s": "Frankfurt – Abu Dhabi (Etihad-Codeshare)", "d": "ab Winter 2026", "f": "täglich", "n": "Start von Mai auf Oktober 2026 verschoben. Berlin – Abu Dhabi täglich, Abu Dhabi – Bangkok neu ab Oktober 2026." },
+      { "t": "chg", "r": "FRA – TBS", "s": "Frankfurt – Tiflis", "d": "ab 02.05.2027", "f": "4x, ab 14.05. 5x, ab 25.05. 7x", "n": "Wiederaufnahme, vorher für 15.06.2026 geplant. E190 von German Airways." },
+      { "t": "new", "r": "FRA – ATH", "s": "Frankfurt – Athen", "d": "ab 28.04.2027", "f": "täglich", "n": "A320neo." },
+      { "t": "new", "r": "FRA – FLR", "s": "Frankfurt – Florenz", "d": "ab 06.05.2027", "f": "2x täglich", "n": "E190 von German Airways." },
+      { "t": "new", "r": "FRA – ARN", "s": "Frankfurt – Stockholm Arlanda", "d": "ab 13.05.2027", "f": "2x täglich", "n": "A319 von Fly Air41." },
+      { "t": "new", "r": "FRA – ORD", "s": "Frankfurt – Chicago O'Hare", "d": "ab Mai 2027", "f": "täglich", "n": "A330neo." },
+      { "t": "new", "r": "FRA – WDH", "s": "Frankfurt – Windhoek", "d": "ab Ende Juni 2027", "f": "3x pro Woche (Di, Do, Sa)", "n": "Rückkehr nach Pause seit 2021. A330neo." },
+      { "t": "new", "r": "FMO – HER", "s": "Münster/Osnabrück – Heraklion", "d": "ab 01.05.2027", "f": "2x, ab 18.05. 3x", "n": "Bisher von LEAV Aviation geflogen." },
+      { "t": "new", "r": "FMO – FUE", "s": "Münster/Osnabrück – Fuerteventura", "d": "ab 02.05.2027", "f": "2x pro Woche", "n": "" },
+      { "t": "new", "r": "FMO – RHO", "s": "Münster/Osnabrück – Rhodos", "d": "ab 02.05.2027", "f": "1x, ab 19.05. 2x", "n": "" },
+      { "t": "new", "r": "FMO – CHQ", "s": "Münster/Osnabrück – Chania", "d": "ab 07.05.2027", "f": "1x, ab 17.05. 2x", "n": "" },
+      { "t": "chg", "r": "FRA/STR – HRG", "s": "Mehr Flüge nach Hurghada", "d": "Dez 2026 bis Jan 2027", "f": "FRA 7 auf 11, STR 5 auf 7 pro Woche", "n": "Zeitlich begrenzte Aufstockung." },
+      { "t": "chg", "r": "Charter", "s": "Sonderflüge Tahiti, Tokio, Chile", "d": "Jan bis Apr 2027", "f": "einzelne Flüge", "n": "Tahiti im März, Tokio im April, Chile Anfang Januar." }
+    ],
+    "weg": [
+      { "t": "cut", "r": "BER · STR – DXB", "s": "Berlin und Stuttgart – Dubai", "d": "gestrichen am 22.09.2026", "f": "Winter 2026/27", "n": "Gründe laut Condor: Verkehrsrechte. Betroffene Gäste werden umgebucht oder erstattet." },
+      { "t": "cut", "r": "FRA – BKK – SYX", "s": "Frankfurt – Sanya (via Bangkok)", "d": "letzter Flug 22.10.2026", "f": "bisher 3x pro Woche", "n": "Rückkehr nach Winter 2026/27 offen." },
+      { "t": "chg", "r": "FRA – JNB", "s": "Frankfurt – Johannesburg", "d": "ab 25.11.2026", "f": "2x statt 3x pro Woche", "n": "Reduzierung." }
+    ]
+  },
+  "flotte": {
+    "bestandStand": "Stand Juli 2026 (55 Flugzeuge, alle Airbus). Seit 20.09.2026 kommt ein geleaster A321 (D-AIAH) hinzu.",
+    "bestand": [
+      ["A320-200", 9], ["A320neo", 7], ["A321-200", 12], ["A321neo", 9], ["A330-900", 18]
+    ],
+    "plus": [
+      { "t": "new", "w": "Airbus A321 D-AIAH (ex Smart Lynx)", "d": "übernommen 20.09.2026", "n": "16 Jahre alt, von Aircastle geleast. Im Linienbetrieb seit 02.10.2026. Am 03.10. kurz wegen Prüfung eines Cockpitfensters aus dem Verkehr, seit 05.10. wieder im Einsatz." },
+      { "t": "chg", "w": "Airbus A330neo D-ANRR", "d": "Lieferung 2. Hälfte Nov 2026", "n": "Verzögert, weil Airbus nach einem Werkzeugfund im Höhenleitwerk Maschinen in der Produktion nachprüfen musste." },
+      { "t": "new", "w": "3 weitere A330neo", "d": "bis Ende 2027", "n": "Teil der Bestellung von vier A330neo vom Juli 2025. Die Langstreckenflotte soll bis 2031 auf 25 Flugzeuge wachsen." },
+      { "t": "chg", "w": "Mögliche Bestellung von ca. 6 weiteren A330neo", "d": "Bloomberg, 15.07.2026", "n": "Nicht bestätigt. Condor und Airbus haben keinen Auftrag bekannt gegeben." },
+      { "t": "new", "w": "Wet-Lease Embraer E190 (German Airways, Helvetic)", "d": "Winter 2026/27 und Sommer 2027", "n": "Winter: Frankfurt – London Gatwick, Mailand, München, Zürich. Sommer 2027: Zürich, Mailand, Florenz, Tiflis. Anzahl der Flugzeuge nicht genannt." },
+      { "t": "new", "w": "Wet-Lease Fly Air41 (A319) und weitere Partner", "d": "2026/27", "n": "Im Sommer 2026 flogen auch Heston Airlines, European Air Charter und Marabu für Condor. Fly Air41 fliegt ab Mai 2027 Frankfurt – Stockholm." }
+    ],
+    "minus": [
+      { "t": "chg", "w": "Prüfempfehlung für A330neo nach Werkzeugfund", "d": "Stand 15.10.2026", "n": "Airbus empfiehlt Checks beim nächsten Wartungstermin für alle von 2021 bis Mai 2026 gelieferten A330neo. Betroffen wären Condors 18 Maschinen. Condor fand bei eigenen Kontrollen keine Auffälligkeiten. Wie die Kontrollen angerechnet werden, ist mit Airbus und EASA offen." },
+      { "t": "cut", "w": "Ältere A320-200 und A321-200 (ceo)", "d": "laufend", "n": "Sollen laut Condor noch einige Jahre fliegen, bis die Flottenerneuerung abgeschlossen ist. Konkrete Ausflottungstermine sind nicht veröffentlicht." }
+    ]
+  },
+  "quellen": [
+    ["AeroRoutes: Condor", "https://www.aeroroutes.com/eng/tag/Condor"],
+    ["aeroTELEGRAPH: Condor City-Netz 2027", "https://www.aerotelegraph.com/airlines/condor-fliegt-2027-auch-nach-athen-florenz-und-stockholm/hb6seze"],
+    ["Reisetopia: Dubai gestrichen", "https://reisetopia.de/news/condor-flugstreichungen-dubai-fluege/"],
+    ["Reisetopia: Sanya", "https://reisetopia.de/news/condor-streicht-sanya-winterflugplan-2026-27/"],
+    ["Reisetopia: Condor ab FMO", "https://reisetopia.de/news/condor-neue-ziele-ab-fmo/"],
+    ["aeroTELEGRAPH: Windhoek", "https://www.aerotelegraph.com/ticker/windhoek-condor-kehrt-2027-nach-namibia-zurueck/rj0ljlb"],
+    ["AeroRoutes: Münster NS27", "https://www.aeroroutes.com/eng/260813-dens27fmo"],
+    ["meilenoptimieren: Condor Flotte (Stand Juli 2026)", "https://meilenoptimieren.com/condor-flotte/"],
+    ["aeroTELEGRAPH: Condors neuer alter A321 fällt aus", "https://www.aerotelegraph.com/airlines/condors-neuer-alter-airbus-a321-faellt-am-zweiten-tag-aus/x7x12lk"],
+    ["aeroTELEGRAPH: Folgen des A330neo-Werkzeugfunds für Condor", "https://www.aerotelegraph.com/flugzeuge/condor-diese-folgen-hat-airbus-werkzeugfund-im-a330-neo-fuer-die-deutsche-airline/mtleyc1"],
+    ["aeroTELEGRAPH: A330neo-Produktionsproblem", "https://www.aerotelegraph.com/flugzeuge/airbus-hat-bei-a330-neo-produktion-ein-qualitaetsproblem-entdeckt/qkddky1"],
+    ["aeroTELEGRAPH: Wet-Lease-Partner für Condor", "https://www.aerotelegraph.com/airlines/diese-strecken-bedienen-german-und-helvetic-airways-fuer-condor/bp0fc3l"],
+    ["Reisetopia: Condor E190 Sommer 2027", "https://reisetopia.de/?p=791853"]
+  ]
+}

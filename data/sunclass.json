@@ -1,0 +1,41 @@
+{
+  "id": "sunclass",
+  "name": "Sunclass Airlines",
+  "stand": "19.10.2026",
+  "log": [
+    "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche."
+  ],
+  "routen": {
+    "neu": [
+      { "t": "chg", "r": "HEL – SID", "s": "Helsinki – Sal (Kap Verde)", "d": "ab 13.10.2026", "f": "1x pro Woche (Di)", "n": "Nonstop mit A321neo statt Routing über Stockholm." },
+      { "t": "chg", "r": "GOT – SID · OSL – SID", "s": "Göteborg und Oslo – Sal", "d": "ab 29.10.2026", "f": "je 1x pro Woche (Do)", "n": "Jeweils nonstop statt Göteborg – Oslo – Sal. Oslo mit A330neo." },
+      { "t": "new", "r": "HEL – PMI · HEL – TFS", "s": "Helsinki – Palma, Teneriffa Süd", "d": "9. bis 18.10.2026", "f": "einzelne Flüge", "n": "Einmalig mit A330neo." }
+    ],
+    "weg": [
+      { "t": "cut", "r": "CPH · OSL · ARN – VLO", "s": "Kopenhagen, Oslo, Stockholm – Vlora", "d": "Saison endete im Sep 2026", "f": "bisher je 1x pro Woche", "n": "Nur für Sommer 2026 geplant. Ob 2027 wieder, ist nicht bekannt." },
+      { "t": "cut", "r": "GOT – OSL – SID · HEL – ARN – SID", "s": "Bisherige Routings nach Sal mit Zwischenstopp", "d": "Winter 2026/27", "f": "ersetzt", "n": "Durch die Nonstop-Strecken oben ersetzt." }
+    ]
+  },
+  "flotte": {
+    "bestandStand": "Stand Juni 2026 (12 Flugzeuge, alle Airbus).",
+    "bestand": [
+      ["A321-200", 6], ["A321neo", 3], ["A330-900", 3]
+    ],
+    "plus": [
+      { "t": "chg", "w": "Übernahme durch Norwegian", "d": "angekündigt 16.06.2026", "n": "Norwegian kauft die Nordic Leisure Travel Group mit Sunclass für ca. 7,94 Mrd. SEK. Abschluss ist für das 2. Halbjahr 2026 geplant. Offen sind die Zustimmung der Aktionäre und der Behörden. Die A330-900 wären Norwegians erste Langstreckenflugzeuge seit der Ausmusterung der 787." },
+      { "t": "new", "w": "Weitere A321neo", "d": "laufende Auslieferungen", "n": "Ein A321neo wurde im Juli 2025 von Aviation Capital Group übergeben. Weitere Bestellungen ersetzen die älteren A321-200. Die Zahl offener Bestellungen ist nicht belegt." }
+    ],
+    "minus": [
+      { "t": "cut", "w": "Airbus A321 OY-TCG", "d": "nach Hard Landing Sep 2024", "n": "In Skiathos beschädigt, Reparatur zu teuer, Rückgabe an den Leasinggeber SMBC und Verschrottung." },
+      { "t": "cut", "w": "A321-200 durch A321neo ersetzt", "d": "laufend", "n": "Sechs A321-200 sind noch im Einsatz und sollen schrittweise ersetzt werden." }
+    ]
+  },
+  "quellen": [
+    ["AeroRoutes: Sunclass", "https://www.aeroroutes.com/eng/tag/Sunclass+Airlines"],
+    ["AeroRoutes: Sunclass Sal Winter 2026/27", "https://www.aeroroutes.com/eng/260825-dknw26sid"],
+    ["aeroTELEGRAPH: Sunclass", "https://www.aerotelegraph.com/tags/sunclass_airlines"],
+    ["aeroTELEGRAPH: Norwegian übernimmt Sunclass", "https://www.aerotelegraph.com/airlines/norwegian-uebernimmt-sunclass-airlines-und-holt-sich-damit-airbus-jets-in-die-flotte/jlq40vk"],
+    ["CAPA: Norwegian und NLTG", "https://centreforaviation.com/news/norwegian-group-to-acquire-nordic-leisure-travel-group-1362992"],
+    ["Aviation Capital Group: A321neo für Sunclass", "https://www.aviationcapitalgroup.com/press/2025/07/22/aviation-capital-group-announces-delivery-of-one-a321neo-to-sunclass-airlines/"]
+  ]
+}
