@@ -1,6 +1,6 @@
 # Airline-Radar
 
-Neue, geänderte und gestrichene Strecken sowie Flottenänderungen von Condor und Sunclass Airlines.
+Neue, geänderte und gestrichene Strecken sowie Flottenänderungen von Condor, Sunclass Airlines und Marabu.
 
 ## Abfragen
 

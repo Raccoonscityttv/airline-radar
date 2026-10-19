@@ -1,0 +1,136 @@
+{
+  "id": "marabu",
+  "name": "Marabu",
+  "stand": "19.10.2026, 17:53 Uhr",
+  "log": [
+    "19.10.2026, 17:53 Uhr: Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche."
+  ],
+  "routen": {
+    "neu": [
+      {
+        "t": "new",
+        "r": "NUE – SUF",
+        "s": "Nürnberg – Lamezia Terme",
+        "d": "ab Sommer 2027 (Starttermin nicht genannt)",
+        "f": "2x pro Woche (Mo, Do)",
+        "n": "Meldung von airliners.de vom 06.10.2026."
+      },
+      {
+        "t": "new",
+        "r": "NUE – PVK",
+        "s": "Nürnberg – Preveza/Lefkada",
+        "d": "ab 15.05.2027",
+        "f": "1x pro Woche (Sa)",
+        "n": "Datum laut airliners.de von der Condor-Webseite."
+      },
+      {
+        "t": "chg",
+        "r": "NUE – CFU",
+        "s": "Nürnberg – Korfu",
+        "d": "ab 07.06.2027",
+        "f": "3x statt 2x pro Woche",
+        "n": "Ein weiterer Flug."
+      },
+      {
+        "t": "chg",
+        "r": "NUE – FUE",
+        "s": "Nürnberg – Fuerteventura",
+        "d": "23.03. bis 27.05. und 03.08. bis 07.09.2027",
+        "f": "2x pro Woche",
+        "n": "Zusätzlicher Flug dienstags."
+      },
+      {
+        "t": "new",
+        "r": "HAM – AGA",
+        "s": "Hamburg – Agadir",
+        "d": "ab 02.11.2026",
+        "f": "2x pro Woche",
+        "n": "Schon im Frühjahr 2026 geflogen (16.03. bis 20.04.), für den Winter 2026/27 geplant. A320neo."
+      },
+      {
+        "t": "new",
+        "r": "HAM – SPC",
+        "s": "Hamburg – Santa Cruz de La Palma",
+        "d": "ab 04.11.2026",
+        "f": "2x pro Woche",
+        "n": "Schon im Frühjahr 2026 geflogen (18.03. bis 29.04.), für den Winter 2026/27 geplant. A320neo."
+      },
+      {
+        "t": "new",
+        "r": "HAM – PVK",
+        "s": "Hamburg – Preveza/Lefkada",
+        "d": "seit 04.07.2026",
+        "f": "1x pro Woche",
+        "n": "Enddatum nicht angegeben. A320neo."
+      },
+      {
+        "t": "chg",
+        "r": "Zubringer für Condor",
+        "s": "Marabu-Zubringerflüge zum Drehkreuz Frankfurt",
+        "d": "Winter 2026/27",
+        "f": "noch offen",
+        "n": "Laut Condor (airliners.de, 11.06.2026) standen Strecken, Umfang und Kapazität noch nicht fest. Konkrete Strecken sind nicht belegt."
+      }
+    ],
+    "weg": [
+      {
+        "t": "cut",
+        "r": "HAM – TRS",
+        "s": "Hamburg – Triest",
+        "d": "Saison endete 11.10.2026",
+        "f": "bisher 1x pro Woche",
+        "n": "Flüge vom 03.05. bis 11.10.2026. Ob 2027 wieder, ist nicht bekannt."
+      }
+    ]
+  },
+  "flotte": {
+    "bestandStand": "Stand 29.07.2026 (12 Flugzeuge, alle Airbus A320neo, laut CDB Aviation). 2027 sollen es laut airliners.de (06.10.2026) 14 werden.",
+    "bestand": [
+      [
+        "A320neo",
+        12
+      ]
+    ],
+    "plus": [
+      {
+        "t": "new",
+        "w": "4 Airbus A320neo von CDB Aviation",
+        "d": "abgeschlossen am 29.07.2026",
+        "n": "Mit der vierten Übergabe ist das Mandat beendet. Die Flugzeuge sind in Economy bestuhlt (180 Sitze). Einsatz ab Hamburg, Leipzig und Nürnberg."
+      },
+      {
+        "t": "new",
+        "w": "2 weitere Airbus A320neo",
+        "d": "bis 2027",
+        "n": "Marabu wächst 2027 auf 14 A320neo (airliners.de, 06.10.2026). Die Planung sah langfristig bis zu 15 Flugzeuge vor (meilenoptimieren, Dezember 2025)."
+      }
+    ],
+    "minus": []
+  },
+  "quellen": [
+    [
+      "airliners.de: Marabu wächst 2027 auf 14 A320neo",
+      "https://www.airliners.de/marabu-baut-angebot-nuernberg-ziel/90634"
+    ],
+    [
+      "AeroRoutes: Marabu Hamburg 2026",
+      "https://www.aeroroutes.com/eng/260319-diyr26ham"
+    ],
+    [
+      "aeroTELEGRAPH: Marabu baut Angebot ab Hamburg aus",
+      "https://www.aerotelegraph.com/ticker/marabu-baut-angebot-ab-hamburg-aus/0tc9z64"
+    ],
+    [
+      "airliners.de: Marabu als Zubringer für Condor",
+      "https://www.airliners.de/marabu-winter-zubringerfluege-condor-uebernehmen/88343"
+    ],
+    [
+      "Business Wire: CDB Aviation, vier A320neo für Marabu",
+      "https://www.businesswire.com/news/home/20260729893358/en/CDB-Aviation-Completes-Mandate-for-Four-A320neo-Deliveries-to-Marabu-Airlines"
+    ],
+    [
+      "meilenoptimieren: Marabu Flotte",
+      "https://meilenoptimieren.com/marabu-flotte/"
+    ]
+  ]
+}
