@@ -1,17 +1,23 @@
 {
   "id": "condor",
   "name": "Condor",
-  "stand": "19.10.2026, 13:00 Uhr",
+  "stand": "19.10.2026, 13:49 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
-    "19.10.2026, 13:00 Uhr: Neuer Flotteneintrag: Wet-Lease-E190 von German Airways (mindestens 2, Kennzeichen D-ABKE belegt) und Quellen ergänzt."
+    "19.10.2026, 13:00 Uhr: Neuer Flotteneintrag: Wet-Lease-E190 von German Airways (mindestens 2, Kennzeichen D-ABKE belegt) und Quellen ergänzt.",
+    "19.10.2026, 13:49 Uhr: Neu Hannover – Arvidsjaur (Charter-Linie, ab 09.11.2026).",
+    "19.10.2026, 13:49 Uhr: Münster/Osnabrück: Starttermine je Ziel präzisiert (Teneriffa 02.11., Hurghada 04.11., Gran Canaria 05.11.2026).",
+    "19.10.2026, 13:49 Uhr: Frankfurt – Tiflis: Frequenzen bis Oktober 2027 ergänzt, E190-Betrieb ab 28.03.2027 geplant.",
+    "19.10.2026, 13:49 Uhr: Hurghada-Aufstockung mit genauen Zeiträumen (FRA 12.12.–10.01., STR 15.12.–08.01.).",
+    "19.10.2026, 13:49 Uhr: Winterflugplan-Stand 18.10.2026 geprüft: Dubai und Sanya nicht enthalten, Abu Dhabi täglich ab BER und FRA."
   ],
   "routen": {
     "neu": [
-      { "t": "new", "r": "FMO – HRG · TFS · LPA", "s": "Münster/Osnabrück: Hurghada, Teneriffa Süd, Gran Canaria", "d": "ab 04.11.2026", "f": "je 2x pro Woche", "n": "Neuer stationierter A320. Bleibt im Sommer 2027, Gran Canaria dann 1x pro Woche." },
+      { "t": "new", "r": "FMO – HRG · TFS · LPA", "s": "Münster/Osnabrück: Hurghada, Teneriffa Süd, Gran Canaria", "d": "ab 02.11.2026 (TFS), 04.11. (HRG), 05.11. (LPA)", "f": "je 2x pro Woche", "n": "Neuer stationierter A320. Bleibt im Sommer 2027, Gran Canaria dann 1x pro Woche." },
       { "t": "new", "r": "FRA – AUH", "s": "Frankfurt – Abu Dhabi (Etihad-Codeshare)", "d": "ab Winter 2026", "f": "täglich", "n": "Start von Mai auf Oktober 2026 verschoben. Berlin – Abu Dhabi täglich, Abu Dhabi – Bangkok neu ab Oktober 2026." },
-      { "t": "chg", "r": "FRA – TBS", "s": "Frankfurt – Tiflis", "d": "ab 02.05.2027", "f": "4x, ab 14.05. 5x, ab 25.05. 7x", "n": "Wiederaufnahme, vorher für 15.06.2026 geplant. E190 von German Airways." },
+      { "t": "chg", "r": "FRA – TBS", "s": "Frankfurt – Tiflis", "d": "ab 02.05.2027", "f": "4x, ab 14.05. 5x, ab 25.05. täglich, ab 24.09. 6x, ab 05.10. 4x", "n": "Wiederaufnahme, vorher für 15.06.2026 geplant. E190 von German Airways, deren Einsatz laut AeroRoutes (Stand 04.10.2026, vorläufig) ab 28.03.2027 beginnt." },
+      { "t": "new", "r": "HAJ – AJR", "s": "Hannover – Arvidsjaur (Schweden)", "d": "ab 09.11.2026", "f": "2x pro Woche", "n": "Linienangebot im Charter-Programm. A321neo ersetzt A320, 53 Sitze mehr pro Flug." },
       { "t": "new", "r": "FRA – ATH", "s": "Frankfurt – Athen", "d": "ab 28.04.2027", "f": "täglich", "n": "A320neo." },
       { "t": "new", "r": "FRA – FLR", "s": "Frankfurt – Florenz", "d": "ab 06.05.2027", "f": "2x täglich", "n": "E190 von German Airways." },
       { "t": "new", "r": "FRA – ARN", "s": "Frankfurt – Stockholm Arlanda", "d": "ab 13.05.2027", "f": "2x täglich", "n": "A319 von Fly Air41." },
@@ -21,7 +27,7 @@
       { "t": "new", "r": "FMO – FUE", "s": "Münster/Osnabrück – Fuerteventura", "d": "ab 02.05.2027", "f": "2x pro Woche", "n": "" },
       { "t": "new", "r": "FMO – RHO", "s": "Münster/Osnabrück – Rhodos", "d": "ab 02.05.2027", "f": "1x, ab 19.05. 2x", "n": "" },
       { "t": "new", "r": "FMO – CHQ", "s": "Münster/Osnabrück – Chania", "d": "ab 07.05.2027", "f": "1x, ab 17.05. 2x", "n": "" },
-      { "t": "chg", "r": "FRA/STR – HRG", "s": "Mehr Flüge nach Hurghada", "d": "Dez 2026 bis Jan 2027", "f": "FRA 7 auf 11, STR 5 auf 7 pro Woche", "n": "Zeitlich begrenzte Aufstockung." },
+      { "t": "chg", "r": "FRA/STR – HRG", "s": "Mehr Flüge nach Hurghada", "d": "FRA 12.12.2026 bis 10.01.2027, STR 15.12.2026 bis 08.01.2027", "f": "FRA 7 auf 11, STR 5 auf 7 pro Woche", "n": "Zeitlich begrenzte Aufstockung mit A321neo (FRA) bzw. A321 (STR). Condor wollte sie auf Anfrage nicht bestätigen. Hamburg und München laut airliners.de täglich." },
       { "t": "chg", "r": "Charter", "s": "Sonderflüge Tahiti, Tokio, Chile", "d": "Jan bis Apr 2027", "f": "einzelne Flüge", "n": "Tahiti im März, Tokio im April, Chile Anfang Januar." }
     ],
     "weg": [
@@ -65,6 +71,11 @@
     ["ch-aviation: German Airways übernimmt fünf E190","https://www.ch-aviation.com/news/170255-german-airways-acquires-five-e190s"],
     ["Frankfurtflyer: Condor mit Embraer 190","https://frankfurtflyer.de/condor-hat-nun-auch-embraer-190-in-der-flotte-koennten-eigene-regionaljets-langfristig-sinn-machen/"],
     ["AeroRoutes: Condor Fly Air41 A319 (NS25)","https://www.aeroroutes.com/eng/250227-dens25319"],
+    ["AeroRoutes: Condor NS27 E190 (vorläufig)","https://www.aeroroutes.com/eng/261007-dens27e90"],
+    ["AeroRoutes: Hannover – Arvidsjaur NW26","https://www.aeroroutes.com/eng/260709-denw26ajr"],
+    ["AeroRoutes: Münster NW26","https://www.aeroroutes.com/eng/260709-denw26fmo"],
+    ["airliners.de: Hurghada Winter 2026/27","https://www.airliners.de/condor-hurghada-winterflugplan-2026-27/89365"],
+    ["Condor: Flugplan Winter 2026/27 (Stand 18.10.2026)","https://www.condor.com/de/generated/flugplan_W2027.pdf"],
     ["Reisetopia: Condor E190 Sommer 2027", "https://reisetopia.de/?p=791853"]
   ]
 }
