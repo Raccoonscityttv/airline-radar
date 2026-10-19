@@ -1,10 +1,11 @@
 {
   "id": "condor",
   "name": "Condor",
-  "stand": "19.10.2026, 12:54 Uhr",
+  "stand": "19.10.2026, 13:00 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
-    "19.10.2026, 12:54 Uhr: Keine Änderungen"
+    "19.10.2026, 12:54 Uhr: Keine Änderungen",
+    "19.10.2026, 13:00 Uhr: Neuer Flotteneintrag: Wet-Lease-E190 von German Airways (mindestens 2, Kennzeichen D-ABKE belegt) und Quellen ergänzt."
   ],
   "routen": {
     "neu": [
@@ -40,6 +41,7 @@
       { "t": "new", "w": "3 weitere A330neo", "d": "bis Ende 2027", "n": "Teil der Bestellung von vier A330neo vom Juli 2025. Die Langstreckenflotte soll bis 2031 auf 25 Flugzeuge wachsen." },
       { "t": "chg", "w": "Mögliche Bestellung von ca. 6 weiteren A330neo", "d": "Bloomberg, 15.07.2026", "n": "Nicht bestätigt. Condor und Airbus haben keinen Auftrag bekannt gegeben." },
       { "t": "new", "w": "Wet-Lease Embraer E190 (German Airways, Helvetic)", "d": "Winter 2026/27 und Sommer 2027", "n": "Winter: Frankfurt – London Gatwick, Mailand, München, Zürich. Sommer 2027: Zürich, Mailand, Florenz, Tiflis. Anzahl der Flugzeuge nicht genannt." },
+      { "t": "new", "w": "Wet-Lease Embraer E190 von German Airways: mindestens 2 Flugzeuge, Kennzeichen D-ABKE", "d": "Stand 31.08.2026", "n": "ch-aviation (05.08.2026): Zwei E190 von German Airways sind an Condor wet-geleast, German Airways betreibt insgesamt neun E190. Frankfurtflyer (31.08.2026) nennt D-ABKE (17 Jahre alt). Das zweite Kennzeichen und Kennzeichen weiterer Flugzeuge sind in den Quellen nicht genannt. Einsatz ab Frankfurt im Winter: London Gatwick 2x, Mailand Malpensa 3x, München 3x, Zürich 1x täglich. A319 von Fly Air41 flogen 2025 für Condor ab Frankfurt (laut AeroRoutes, Februar 2025), Anzahl und Kennzeichen sind nicht genannt. E195-E2 sind in den Quellen nicht belegt." },
       { "t": "new", "w": "Wet-Lease Fly Air41 (A319) und weitere Partner", "d": "2026/27", "n": "Im Sommer 2026 flogen auch Heston Airlines, European Air Charter und Marabu für Condor. Fly Air41 fliegt ab Mai 2027 Frankfurt – Stockholm." }
     ],
     "minus": [
@@ -60,6 +62,9 @@
     ["aeroTELEGRAPH: Folgen des A330neo-Werkzeugfunds für Condor", "https://www.aerotelegraph.com/flugzeuge/condor-diese-folgen-hat-airbus-werkzeugfund-im-a330-neo-fuer-die-deutsche-airline/mtleyc1"],
     ["aeroTELEGRAPH: A330neo-Produktionsproblem", "https://www.aerotelegraph.com/flugzeuge/airbus-hat-bei-a330-neo-produktion-ein-qualitaetsproblem-entdeckt/qkddky1"],
     ["aeroTELEGRAPH: Wet-Lease-Partner für Condor", "https://www.aerotelegraph.com/airlines/diese-strecken-bedienen-german-und-helvetic-airways-fuer-condor/bp0fc3l"],
+    ["ch-aviation: German Airways übernimmt fünf E190","https://www.ch-aviation.com/news/170255-german-airways-acquires-five-e190s"],
+    ["Frankfurtflyer: Condor mit Embraer 190","https://frankfurtflyer.de/condor-hat-nun-auch-embraer-190-in-der-flotte-koennten-eigene-regionaljets-langfristig-sinn-machen/"],
+    ["AeroRoutes: Condor Fly Air41 A319 (NS25)","https://www.aeroroutes.com/eng/250227-dens25319"],
     ["Reisetopia: Condor E190 Sommer 2027", "https://reisetopia.de/?p=791853"]
   ]
 }
