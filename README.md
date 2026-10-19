@@ -4,11 +4,12 @@ Neue, geänderte und gestrichene Strecken sowie Flottenänderungen von Condor un
 
 ## Abfragen
 
-Die Seite läuft über GitHub Pages. Oben wählst du die Airlines und den Bereich (Flotte und Routen, nur Flotte, nur Routen). Die Auswahl steht im Link und lässt sich als Lesezeichen speichern:
+Die Seite läuft über GitHub Pages und zeigt alle Einträge in einer Liste.
 
-- `?bereich=flotte` zeigt nur die Flotte beider Airlines
-- `?airlines=condor&bereich=routen` zeigt nur die Routen von Condor
-- `?airlines=sunclass` zeigt Flotte und Routen von Sunclass
+- **Suche:** Das Suchfeld durchsucht Strecke, Flughafen, Flugzeug, Datum, Frequenz, Hinweis und Airline. Mehrere Wörter gelten gemeinsam (`hurghada stuttgart`). Treffer sind markiert. Auf dem Computer springt die Taste `/` ins Suchfeld.
+- **Filter:** Airline (eine oder beide), Bereich (Alle, Routen, Flotte) und Status (Neu, Geändert, Entfällt). Die Zahlen an den Status-Filtern zeigen, wie viele Einträge es jeweils gibt.
+- **Details:** Ein Tipp auf eine Zeile zeigt Frequenz und Hinweis. „Alle aufklappen“ öffnet alles.
+- **Lesezeichen:** Die Auswahl steht im Link, zum Beispiel `?airlines=condor&bereich=routen&q=hurghada` oder `?status=cut`.
 
 ## Aufbau
 

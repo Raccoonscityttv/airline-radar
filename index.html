@@ -7,10 +7,10 @@
 <title>Airline-Radar</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
-/* Layout: Kopf mit Stand, Auswahl (Airline und Bereich), Zusammenfassung, je Airline eine Karte mit Flotte und Routen. Daten kommen aus data/*.json. */
+/* Layout: Suchleiste oben (haftet beim Scrollen), darunter Filter, Bestand, dann eine einzige Liste. Jede Zeile zeigt Status, Titel, Zeitpunkt und Tags, Details klappen per Tipp auf. Daten kommen aus data/*.json. */
 :root {
   --bg: #f3f5f8; --surface: #ffffff; --ink: #101a2b; --muted: #5a6577; --line: #d9dfe8;
-  --accent: #0d4f8b; --accent-ink: #ffffff; --bar: #9db9d6;
+  --accent: #0d4f8b; --accent-ink: #ffffff; --bar: #9db9d6; --mark: #ffe58a;
   --new: #0f7a4a; --new-bg: #dff3e8; --cut: #b3261e; --cut-bg: #fbe4e1; --chg: #8a5a00; --chg-bg: #fdefcf;
   --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -19,71 +19,97 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0c121c; --surface: #141c29; --ink: #e8edf5; --muted: #9aa6b8; --line: #263145;
-    --accent: #6cb2f0; --accent-ink: #0c121c; --bar: #2f5e8c; --new: #5fd39a; --new-bg: #123626;
-    --cut: #ff8f86; --cut-bg: #3d1a18; --chg: #f0c04f; --chg-bg: #3a2d0e; color-scheme: dark;
+    --accent: #6cb2f0; --accent-ink: #0c121c; --bar: #2f5e8c; --mark: #6b5a12;
+    --new: #5fd39a; --new-bg: #123626; --cut: #ff8f86; --cut-bg: #3d1a18; --chg: #f0c04f; --chg-bg: #3a2d0e; color-scheme: dark;
   }
 }
 * { box-sizing: border-box; }
 body {
-  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.5;
-  padding-block: calc(24px + env(safe-area-inset-top, 0px)) calc(48px + env(safe-area-inset-bottom, 0px));
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.45;
+  padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px));
 }
-.wrap { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
-h1 { font-size: 28px; line-height: 1.15; margin: 0; font-weight: 600; text-wrap: balance; letter-spacing: -0.01em; }
-h2 { font-size: 20px; margin: 0; font-weight: 600; }
-h3 { font-size: 11px; margin: 0; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.wrap { max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { display: flex; flex-direction: column; gap: 4px; padding-top: calc(20px + env(safe-area-inset-top, 0px)); }
+h1 { font-size: 26px; line-height: 1.15; margin: 0; font-weight: 600; letter-spacing: -0.01em; }
+h2 { font-size: 16px; margin: 0; font-weight: 600; }
 .stand { font-family: var(--mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
-header { display: flex; flex-direction: column; gap: 8px; }
-header p { margin: 0; color: var(--muted); max-width: 65ch; }
-.controls { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; display: flex; flex-wrap: wrap; gap: 16px 32px; }
-fieldset { border: 0; padding: 0; margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
-legend { padding: 0; margin-bottom: 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; }
-.chips { display: flex; gap: 6px; flex-wrap: wrap; }
-.chips button { font: inherit; font-size: 14px; padding: 6px 14px; border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 999px; cursor: pointer; }
+.searchbar { position: sticky; top: 0; z-index: 5; background: var(--bg); padding-block: 8px; padding-top: calc(8px + env(safe-area-inset-top, 0px)); margin-top: -8px; }
+.searchbox { position: relative; }
+.searchbox input { width: 100%; font: inherit; font-size: 16px; padding: 12px 40px 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); appearance: none; -webkit-appearance: none; }
+.searchbox input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.searchbox input::-webkit-search-cancel-button { display: none; }
+.clear { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; border: 0; background: transparent; color: var(--muted); font-size: 20px; line-height: 1; cursor: pointer; border-radius: 6px; }
+.clear[hidden] { display: none; }
+.filters { display: flex; flex-direction: column; gap: 10px; }
+.frow { display: flex; align-items: center; gap: 10px; }
+.flabel { width: 64px; flex: none; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; min-width: 0; }
+.chips button { font: inherit; font-size: 14px; padding: 5px 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; cursor: pointer; }
 .chips button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .chips button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.sum { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
-.sum div { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; }
-.sum b { display: block; font-family: var(--mono); font-size: 26px; font-weight: 500; font-variant-numeric: tabular-nums; }
-.sum span { font-size: 13px; color: var(--muted); }
-.sum .n b { color: var(--new); } .sum .c b { color: var(--cut); } .sum .m b { color: var(--chg); }
-.board { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
-.board-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 12px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
-.sect { border-bottom: 1px solid var(--line); }
-.sect:last-child { border-bottom: 0; }
-.sect > h3 { padding: 12px 16px 4px; }
-.sub { padding: 8px 16px 2px; font-size: 13px; font-weight: 600; }
-.fleet { padding: 8px 16px 14px; display: flex; flex-direction: column; gap: 10px; }
-.frow { display: grid; grid-template-columns: minmax(96px, 150px) 1fr 40px; gap: 12px; align-items: center; }
-.frow .ty { font-family: var(--mono); font-size: 13px; font-weight: 500; }
-.frow .tr { background: var(--line); height: 10px; border-radius: 3px; overflow: hidden; }
-.frow .fl { background: var(--bar); height: 100%; }
-.frow .ct { font-family: var(--mono); font-size: 14px; text-align: right; font-variant-numeric: tabular-nums; }
-.fnote { font-size: 13px; color: var(--muted); margin: 0; }
-.scroll { overflow-x: auto; }
-table { border-collapse: collapse; width: 100%; min-width: 620px; }
-th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; padding: 8px 16px; border-bottom: 1px solid var(--line); }
-td { padding: 10px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
-tr:last-child td { border-bottom: 0; }
-.route { font-family: var(--mono); font-size: 14px; font-weight: 500; white-space: nowrap; }
-.what { font-weight: 500; }
-.sl { display: block; font-family: var(--font); font-size: 12px; color: var(--muted); font-weight: 400; white-space: normal; }
-.date { font-family: var(--mono); font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.pill { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+.chips .n { font-family: var(--mono); font-size: 12px; opacity: 0.75; margin-left: 4px; }
+.meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); }
+.link { font: inherit; font-size: 13px; color: var(--accent); background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.panel > summary, .panel > .ph { padding: 12px 14px; font-weight: 600; font-size: 15px; cursor: pointer; }
+.panel > .ph { cursor: default; }
+details.panel > summary { list-style: none; display: flex; justify-content: space-between; align-items: center; }
+details.panel > summary::-webkit-details-marker { display: none; }
+details > summary::after { content: "›"; font-size: 20px; color: var(--muted); transition: transform 0.15s; }
+details[open] > summary::after { transform: rotate(90deg); }
+.pbody { padding: 0 14px 14px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+.pbody ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+.pbody a { color: var(--accent); overflow-wrap: anywhere; }
+.fleet { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; padding: 0 14px 14px; }
+.fcard { display: flex; flex-direction: column; gap: 8px; }
+.fcard h3 { margin: 0; font-size: 13px; font-weight: 600; display: flex; justify-content: space-between; }
+.fcard h3 span { font-family: var(--mono); font-weight: 500; color: var(--muted); }
+.fb { display: grid; grid-template-columns: 84px 1fr 28px; gap: 8px; align-items: center; font-size: 13px; }
+.fb .ty { font-family: var(--mono); font-weight: 500; }
+.fb .tr { background: var(--line); height: 8px; border-radius: 3px; overflow: hidden; }
+.fb .fl { background: var(--bar); height: 100%; }
+.fb .ct { font-family: var(--mono); text-align: right; font-variant-numeric: tabular-nums; }
+.fnote { margin: 0; font-size: 12px; color: var(--muted); }
+.group { display: flex; flex-direction: column; gap: 8px; }
+.group > h2 { display: flex; align-items: baseline; gap: 8px; padding-top: 4px; }
+.group > h2 span { font-family: var(--mono); font-size: 12px; color: var(--muted); font-weight: 500; }
+.list { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.row { border-bottom: 1px solid var(--line); }
+.row:last-child { border-bottom: 0; }
+.row > summary { list-style: none; display: grid; grid-template-columns: 84px 1fr auto; gap: 4px 12px; align-items: start; padding: 12px 14px; cursor: pointer; }
+.row > summary::-webkit-details-marker { display: none; }
+.row > summary::after { content: none; }
+.row > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.pill { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; white-space: nowrap; margin-top: 1px; }
 .pill.new { background: var(--new-bg); color: var(--new); }
 .pill.cut { background: var(--cut-bg); color: var(--cut); }
 .pill.chg { background: var(--chg-bg); color: var(--chg); }
-.note { font-size: 13px; color: var(--muted); display: block; margin-top: 2px; font-weight: 400; }
-.empty { padding: 12px 16px 16px; color: var(--muted); }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; }
-.card ul { margin: 8px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
-.card li { font-size: 13px; overflow-wrap: anywhere; }
-.card a { color: var(--accent); }
-.hint { font-size: 13px; color: var(--muted); max-width: 70ch; margin: 0; }
-.err { background: var(--cut-bg); color: var(--cut); border-radius: 6px; padding: 12px 16px; }
-@media (max-width: 520px) { h1 { font-size: 24px; } td, th { padding-inline: 12px; } .frow { grid-template-columns: 96px 1fr 32px; } }
+.row > summary .pill { grid-column: 1; grid-row: 1; }
+.row > summary .main { grid-column: 2; grid-row: 1; }
+.row > summary .when { grid-column: 3; grid-row: 1; }
+.main { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.title { font-weight: 600; overflow-wrap: anywhere; }
+.title.mono { font-family: var(--mono); font-size: 14px; font-weight: 500; }
+.sub { font-size: 13px; color: var(--muted); }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 2px; }
+.tag { font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 6px; }
+.when { font-family: var(--mono); font-size: 12px; color: var(--muted); text-align: right; max-width: 150px; font-variant-numeric: tabular-nums; margin-top: 3px; }
+.detail { padding: 0 14px 14px 14px; display: grid; gap: 4px; font-size: 14px; }
+.detail div b { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 500; display: block; }
+mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1px; }
+.empty { padding: 28px 16px; text-align: center; color: var(--muted); }
+.err { background: var(--cut-bg); color: var(--cut); border-radius: 8px; padding: 12px 16px; }
+.hint { font-size: 12px; color: var(--muted); margin: 0; }
+@media (max-width: 520px) {
+  h1 { font-size: 23px; }
+  .frow { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .flabel { width: auto; }
+  .row > summary { grid-template-columns: 1fr auto; }
+  .row > summary .pill { grid-column: 1; grid-row: 1; justify-self: start; }
+  .row > summary .when { grid-column: 2; grid-row: 1; }
+  .row > summary .main { grid-column: 1 / -1; grid-row: 2; }
+}
 </style>
 </head>
 <body>
@@ -91,149 +117,192 @@ tr:last-child td { border-bottom: 0; }
   <header>
     <div class="stand" id="stand">Lade Daten</div>
     <h1>Airline-Radar</h1>
-    <p>Neue, geänderte und gestrichene Strecken sowie Flottenänderungen. Wähle Airlines und Bereich, die Auswahl bleibt im Link erhalten.</p>
   </header>
 
-  <section class="controls" aria-label="Auswahl">
-    <fieldset>
-      <legend>Airline</legend>
-      <div class="chips" id="airlineChips"></div>
-    </fieldset>
-    <fieldset>
-      <legend>Bereich</legend>
-      <div class="chips" id="scopeChips">
-        <button type="button" data-s="beides" id="scope-beides">Flotte und Routen</button>
-        <button type="button" data-s="flotte" id="scope-flotte">Nur Flotte</button>
-        <button type="button" data-s="routen" id="scope-routen">Nur Routen</button>
-      </div>
-    </fieldset>
+  <div class="searchbar">
+    <div class="searchbox">
+      
+      <input id="q" type="search" aria-label="Suche" placeholder="Suchen: Flughafen, Strecke, Flugzeug" autocomplete="off" enterkeyhint="search">
+      <button type="button" class="clear" id="clear" aria-label="Suche löschen" hidden>×</button>
+    </div>
+  </div>
+
+  <section class="filters" aria-label="Filter">
+    <div class="frow"><span class="flabel">Airline</span><div class="chips" id="fAirline"></div></div>
+    <div class="frow"><span class="flabel">Bereich</span><div class="chips" id="fScope"></div></div>
+    <div class="frow"><span class="flabel">Status</span><div class="chips" id="fStatus"></div></div>
   </section>
 
   <div id="error"></div>
-  <section class="sum" id="sum" aria-label="Zusammenfassung"></section>
-  <div id="boards" style="display:flex;flex-direction:column;gap:24px"></div>
-  <section class="card" id="logCard">
-    <h2>Seit der letzten Aktualisierung</h2>
-    <ul id="logList"></ul>
-  </section>
+
+  <details class="panel" id="logPanel">
+    <summary id="logTitle">Seit der letzten Aktualisierung</summary>
+    <div class="pbody"><ul id="logList"></ul></div>
+  </details>
+
+  <details class="panel" id="fleetPanel">
+    <summary>Flottenbestand</summary>
+    <div class="fleet" id="fleet"></div>
+  </details>
+
+  <div class="meta"><span id="count"></span><button type="button" class="link" id="toggleAll">Alle aufklappen</button></div>
+  <div id="groups" style="display:flex;flex-direction:column;gap:16px"></div>
+
+  <details class="panel" id="srcPanel">
+    <summary>Quellen</summary>
+    <div class="pbody"><ul id="srcList"></ul></div>
+  </details>
   <p class="hint">Angaben stammen aus öffentlichen Medienberichten und sind Planstände. Bestandszahlen nennen den Stand ihrer Quelle. Wet-Lease-Flugzeuge gehören den Partnerairlines und zählen nicht zum eigenen Bestand.</p>
-  <section class="card" id="srcCard">
-    <h2>Quellen</h2>
-    <ul id="srcList"></ul>
-  </section>
 </div>
 
 <script>
-const LABEL = { new: "Neu", cut: "Gestrichen", chg: "Geändert" };
-const FLABEL = { new: "Zugang", cut: "Abgang", chg: "Änderung" };
-const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const STATUS = { new: "Neu", chg: "Geändert", cut: "Entfällt" };
+const SCOPES = [["beides", "Alle"], ["routen", "Routen"], ["flotte", "Flotte"]];
+const KIND = { routen: "Routen", flotte: "Flotte" };
 
-let AIRLINES = [];   // [{id, name}]
-let DATA = {};       // id -> Daten
-const sel = { airlines: new Set(), scope: "beides" };
+let AIRLINES = [], DATA = {}, ITEMS = [];
+const st = { airlines: new Set(), scope: "beides", status: "alle", q: "" };
+let allOpen = false;
+
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const norm = s => String(s == null ? "" : s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+
+function buildItems() {
+  ITEMS = [];
+  AIRLINES.forEach(a => {
+    const d = DATA[a.id];
+    d.routen.neu.concat(d.routen.weg).forEach(x => ITEMS.push({ air: a.id, airName: a.name, kind: "routen", t: x.t, title: x.r, sub: x.s, when: x.d, freq: x.f, note: x.n }));
+    d.flotte.plus.concat(d.flotte.minus).forEach(x => ITEMS.push({ air: a.id, airName: a.name, kind: "flotte", t: x.t, title: x.w, sub: "", when: x.d, freq: "", note: x.n }));
+  });
+  ITEMS.forEach(i => {
+    i.titleN = norm(i.title + " " + i.sub + " " + i.when);
+    i.allN = norm([i.title, i.sub, i.when, i.freq, i.note, i.airName, KIND[i.kind], STATUS[i.t]].join(" "));
+  });
+}
+function terms() { return norm(st.q).split(/\s+/).filter(Boolean); }
+function hl(raw, rawTerms) {
+  if (!rawTerms.length) return esc(raw);
+  const re = new RegExp("(" + rawTerms.map(reEsc).join("|") + ")", "gi");
+  return String(raw == null ? "" : raw).split(re).map((p, i) => i % 2 ? "<mark>" + esc(p) + "</mark>" : esc(p)).join("");
+}
 
 function readUrl() {
   const p = new URLSearchParams(location.search);
   const a = (p.get("airlines") || "").split(",").filter(x => AIRLINES.some(l => l.id === x));
-  sel.airlines = new Set(a.length ? a : AIRLINES.map(l => l.id));
-  const s = p.get("bereich");
-  sel.scope = ["beides", "flotte", "routen"].includes(s) ? s : "beides";
+  st.airlines = new Set(a.length ? a : AIRLINES.map(l => l.id));
+  st.scope = ["beides", "routen", "flotte"].includes(p.get("bereich")) ? p.get("bereich") : "beides";
+  st.status = ["new", "chg", "cut"].includes(p.get("status")) ? p.get("status") : "alle";
+  st.q = (p.get("q") || "").slice(0, 100);
 }
 function writeUrl() {
   const p = new URLSearchParams();
-  if (sel.airlines.size !== AIRLINES.length) p.set("airlines", [...sel.airlines].join(","));
-  if (sel.scope !== "beides") p.set("bereich", sel.scope);
+  if (st.airlines.size !== AIRLINES.length) p.set("airlines", [...st.airlines].join(","));
+  if (st.scope !== "beides") p.set("bereich", st.scope);
+  if (st.status !== "alle") p.set("status", st.status);
+  if (st.q) p.set("q", st.q);
   const q = p.toString();
   try { history.replaceState(null, "", location.pathname + (q ? "?" + q : "")); } catch (e) {}
 }
 
-function routeTable(list) {
-  if (!list.length) return '<div class="empty">Keine Einträge.</div>';
-  return '<div class="scroll"><table><thead><tr><th>Strecke</th><th>Status</th><th>Zeitpunkt</th><th>Frequenz</th></tr></thead><tbody>' +
-    list.map(x => '<tr><td><span class="route">' + esc(x.r) + '<span class="sl">' + esc(x.s) + "</span></span>" +
-      (x.n ? '<span class="note">' + esc(x.n) + "</span>" : "") + "</td>" +
-      '<td><span class="pill ' + x.t + '">' + LABEL[x.t] + "</span></td>" +
-      '<td class="date">' + esc(x.d) + "</td><td>" + esc(x.f) + "</td></tr>").join("") +
-    "</tbody></table></div>";
+function baseFilter(i) {
+  if (!st.airlines.has(i.air)) return false;
+  if (st.scope !== "beides" && i.kind !== st.scope) return false;
+  const tm = terms();
+  return tm.every(t => i.allN.includes(t));
 }
-function fleetTable(list) {
-  if (!list.length) return '<div class="empty">Keine Einträge.</div>';
-  return '<div class="scroll"><table><thead><tr><th>Flugzeug oder Thema</th><th>Status</th><th>Zeitpunkt</th></tr></thead><tbody>' +
-    list.map(x => '<tr><td><span class="what">' + esc(x.w) + '</span><span class="note">' + esc(x.n) + "</span></td>" +
-      '<td><span class="pill ' + x.t + '">' + FLABEL[x.t] + "</span></td>" +
-      '<td class="date">' + esc(x.d) + "</td></tr>").join("") +
-    "</tbody></table></div>";
+
+function renderChips() {
+  const base = ITEMS.filter(baseFilter);
+  const cnt = t => base.filter(i => t === "alle" || i.t === t).length;
+  const chip = (attr, val, text, pressed, n) => '<button type="button" ' + attr + '="' + esc(val) + '" aria-pressed="' + pressed + '">' + esc(text) + (n == null ? "" : '<span class="n">' + n + "</span>") + "</button>";
+  document.getElementById("fAirline").innerHTML = AIRLINES.map(a => chip("data-a", a.id, a.name, st.airlines.has(a.id))).join("");
+  document.getElementById("fScope").innerHTML = SCOPES.map(s => chip("data-s", s[0], s[1], st.scope === s[0])).join("");
+  document.getElementById("fStatus").innerHTML =
+    chip("data-t", "alle", "Alle", st.status === "alle", cnt("alle")) +
+    ["new", "chg", "cut"].map(t => chip("data-t", t, STATUS[t], st.status === t, cnt(t))).join("");
 }
-function fleetBars(f) {
-  const max = Math.max.apply(null, f.bestand.map(b => b[1]));
-  return '<div class="fleet">' + f.bestand.map(b =>
-    '<div class="frow"><span class="ty">' + esc(b[0]) + '</span><div class="tr"><div class="fl" style="width:' + Math.round(b[1] / max * 100) + '%"></div></div><span class="ct">' + b[1] + "</span></div>").join("") +
-    '<p class="fnote">' + esc(f.bestandStand) + "</p></div>";
+
+function row(i, tm) {
+  const open = allOpen || (tm.length && !tm.every(t => i.titleN.includes(t)));
+  const tags = '<span class="tag">' + hl(i.airName, tm) + '</span><span class="tag">' + esc(KIND[i.kind]) + "</span>";
+  let det = "";
+  if (i.freq) det += "<div><b>Frequenz</b>" + hl(i.freq, tm) + "</div>";
+  if (i.note) det += "<div><b>Hinweis</b>" + hl(i.note, tm) + "</div>";
+  if (!det) det = "<div><b>Hinweis</b>Keine weiteren Angaben.</div>";
+  return '<details class="row"' + (open ? " open" : "") + '><summary><span class="pill ' + i.t + '">' + STATUS[i.t] + "</span>" +
+    '<span class="when">' + hl(i.when, tm) + "</span>" +
+    '<span class="main"><span class="title' + (i.kind === "routen" ? " mono" : "") + '">' + hl(i.title, tm) + "</span>" +
+    (i.sub ? '<span class="sub">' + hl(i.sub, tm) + "</span>" : "") + '<span class="tags">' + tags + "</span></span></summary>" +
+    '<div class="detail">' + det + "</div></details>";
 }
 
 function render() {
-  document.querySelectorAll("#airlineChips button").forEach(b => b.setAttribute("aria-pressed", sel.airlines.has(b.dataset.id) ? "true" : "false"));
-  document.querySelectorAll("#scopeChips button").forEach(b => b.setAttribute("aria-pressed", b.dataset.s === sel.scope ? "true" : "false"));
-  writeUrl();
+  const tm = terms();
+  renderChips();
+  const shown = ITEMS.filter(i => baseFilter(i) && (st.status === "alle" || i.t === st.status));
 
-  const showF = sel.scope !== "routen", showR = sel.scope !== "flotte";
-  const chosen = AIRLINES.filter(a => sel.airlines.has(a.id) && DATA[a.id]);
-  const items = [];
-  chosen.forEach(a => {
-    const d = DATA[a.id];
-    if (showR) items.push(...d.routen.neu, ...d.routen.weg);
-    if (showF) items.push(...d.flotte.plus, ...d.flotte.minus);
-  });
-  const cnt = t => items.filter(x => x.t === t).length;
-  document.getElementById("sum").innerHTML =
-    '<div class="n"><b>' + cnt("new") + "</b><span>Neu oder Zugang</span></div>" +
-    '<div class="m"><b>' + cnt("chg") + "</b><span>Geändert</span></div>" +
-    '<div class="c"><b>' + cnt("cut") + "</b><span>Gestrichen oder Abgang</span></div>";
+  document.getElementById("count").textContent = shown.length + (shown.length === 1 ? " Eintrag" : " Einträge");
+  document.getElementById("clear").hidden = !st.q;
+  const groups = ["routen", "flotte"].filter(k => st.scope === "beides" || st.scope === k);
+  const html = groups.map(k => {
+    const rows = shown.filter(i => i.kind === k);
+    if (!rows.length) return "";
+    return '<section class="group"><h2>' + KIND[k] + " <span>" + rows.length + '</span></h2><div class="list">' + rows.map(i => row(i, tm)).join("") + "</div></section>";
+  }).join("");
+  document.getElementById("groups").innerHTML = html || '<div class="panel empty">Keine Treffer. Ändere die Suche oder die Filter.<br><button type="button" class="link" id="reset">Alles zurücksetzen</button></div>';
+  const reset = document.getElementById("reset");
+  if (reset) reset.addEventListener("click", () => { st.q = ""; st.status = "alle"; st.scope = "beides"; st.airlines = new Set(AIRLINES.map(a => a.id)); document.getElementById("q").value = ""; render(); });
 
-  document.getElementById("boards").innerHTML = chosen.map(a => {
-    const d = DATA[a.id];
-    let h = '<section class="board"><div class="board-head"><h2>' + esc(a.name) + "</h2><h3>Stand " + esc(d.stand) + "</h3></div>";
-    if (showF) {
-      h += '<div class="sect"><h3>Flotte</h3>' + fleetBars(d.flotte) +
-        '<div class="sub">Zugänge und Änderungen</div>' + fleetTable(d.flotte.plus) +
-        '<div class="sub">Abgänge und Risiken</div>' + fleetTable(d.flotte.minus) + "</div>";
-    }
-    if (showR) {
-      h += '<div class="sect"><h3>Routen</h3>' +
-        '<div class="sub">Neu und geändert</div>' + routeTable(d.routen.neu) +
-        '<div class="sub">Entfällt</div>' + routeTable(d.routen.weg) + "</div>";
-    }
-    return h + "</section>";
+  // Bestand nur ohne Suche und ohne Statusfilter, sonst lenkt er von den Treffern ab
+  const showFleet = st.scope !== "routen" && !st.q && st.status === "alle";
+  document.getElementById("fleetPanel").hidden = !showFleet;
+  document.getElementById("fleet").innerHTML = AIRLINES.filter(a => st.airlines.has(a.id)).map(a => {
+    const f = DATA[a.id].flotte, max = Math.max.apply(null, f.bestand.map(b => b[1])), tot = f.bestand.reduce((s, b) => s + b[1], 0);
+    return '<div class="fcard"><h3>' + esc(a.name) + "<span>" + tot + " Flugzeuge</span></h3>" +
+      f.bestand.map(b => '<div class="fb"><span class="ty">' + esc(b[0]) + '</span><div class="tr"><div class="fl" style="width:' + Math.round(b[1] / max * 100) + '%"></div></div><span class="ct">' + b[1] + "</span></div>").join("") +
+      '<p class="fnote">' + esc(f.bestandStand) + "</p></div>";
   }).join("");
 
+  const chosen = AIRLINES.filter(a => st.airlines.has(a.id));
   const stands = chosen.map(a => DATA[a.id].stand);
-  document.getElementById("stand").textContent = stands.length ? "Stand " + stands.join(" / ") : "Keine Airline gewählt";
-  document.getElementById("logList").innerHTML = chosen.flatMap(a => DATA[a.id].log.map(l => "<li><b>" + esc(a.name) + ":</b> " + esc(l) + "</li>")).join("");
+  document.getElementById("stand").textContent = stands.length ? "Stand " + [...new Set(stands)].join(" / ") : "";
+  const logs = chosen.flatMap(a => DATA[a.id].log.map(l => "<li><b>" + esc(a.name) + ":</b> " + esc(l) + "</li>"));
+  document.getElementById("logList").innerHTML = logs.join("");
+  document.getElementById("logPanel").hidden = !logs.length;
   const seen = new Set();
   document.getElementById("srcList").innerHTML = chosen.flatMap(a => DATA[a.id].quellen).filter(q => !seen.has(q[1]) && seen.add(q[1]))
     .map(q => '<li><a href="' + esc(q[1]) + '" target="_blank" rel="noopener">' + esc(q[0]) + "</a></li>").join("");
+  document.getElementById("toggleAll").textContent = allOpen ? "Alle zuklappen" : "Alle aufklappen";
+  writeUrl();
 }
 
-function setup() {
-  const ac = document.getElementById("airlineChips");
-  ac.innerHTML = AIRLINES.map(a => '<button type="button" data-id="' + esc(a.id) + '" id="airline-' + esc(a.id) + '">' + esc(a.name) + "</button>").join("");
-  ac.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
-    if (sel.airlines.has(b.dataset.id)) { if (sel.airlines.size > 1) sel.airlines.delete(b.dataset.id); }
-    else sel.airlines.add(b.dataset.id);
+function bind() {
+  const q = document.getElementById("q");
+  q.value = st.q;
+  let timer;
+  q.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => { st.q = q.value.trim(); render(); }, 120); });
+  document.getElementById("clear").addEventListener("click", () => { q.value = ""; st.q = ""; render(); q.focus(); });
+  document.addEventListener("keydown", e => { if (e.key === "/" && document.activeElement !== q && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); q.focus(); } });
+  document.getElementById("fAirline").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    const id = b.dataset.a;
+    if (st.airlines.has(id)) { if (st.airlines.size > 1) st.airlines.delete(id); } else st.airlines.add(id);
     render();
-  }));
-  document.querySelectorAll("#scopeChips button").forEach(b => b.addEventListener("click", () => { sel.scope = b.dataset.s; render(); }));
+  });
+  document.getElementById("fScope").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { st.scope = b.dataset.s; render(); } });
+  document.getElementById("fStatus").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { st.status = b.dataset.t; render(); } });
+  document.getElementById("toggleAll").addEventListener("click", () => { allOpen = !allOpen; render(); });
 }
 
-fetch("data/airlines.json").then(r => r.json()).then(list => {
+fetch("data/airlines.json", { cache: "no-cache" }).then(r => r.json()).then(list => {
   AIRLINES = list;
-  return Promise.all(list.map(a => fetch("data/" + a.id + ".json").then(r => r.json()).then(d => { DATA[a.id] = d; })));
-}).then(() => { readUrl(); setup(); render(); })
+  return Promise.all(list.map(a => fetch("data/" + a.id + ".json", { cache: "no-cache" }).then(r => r.json()).then(d => { DATA[a.id] = d; })));
+}).then(() => { buildItems(); readUrl(); bind(); render(); })
   .catch(() => {
     document.getElementById("stand").textContent = "";
     document.getElementById("error").innerHTML = '<div class="err">Die Daten konnten nicht geladen werden. Öffne die Seite über die GitHub-Pages-Adresse, nicht als lokale Datei.</div>';
-    document.getElementById("logCard").hidden = true;
-    document.getElementById("srcCard").hidden = true;
+    ["logPanel", "fleetPanel", "srcPanel"].forEach(id => { document.getElementById(id).hidden = true; });
   });
 </script>
 </body>
