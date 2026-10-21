@@ -1,7 +1,7 @@
 {
   "id": "condor",
   "name": "Condor",
-  "stand": "19.10.2026, 16:34 Uhr",
+  "stand": "21.10.2026, 08:57 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
@@ -16,7 +16,10 @@
     "19.10.2026, 16:34 Uhr: Berlin – Abu Dhabi seit 15.10.2026 täglich (A320neo), Eintrag angepasst.",
     "19.10.2026, 16:34 Uhr: Neu: Frankfurt – Tel Aviv täglich seit 01.08.2026.",
     "19.10.2026, 16:34 Uhr: A330neo-Prüfungen: Airbus liefert wieder aus (02.10.2026), betroffen sind laut AFP-Quelle Auslieferungen von Januar 2021 bis Juli 2026; EASA sieht kein unmittelbares Sicherheitsproblem.",
-    "19.10.2026, 13:49 Uhr: Winterflugplan-Stand 18.10.2026 geprüft: Dubai und Sanya nicht enthalten, Abu Dhabi täglich ab BER und FRA."
+    "19.10.2026, 13:49 Uhr: Winterflugplan-Stand 18.10.2026 geprüft: Dubai und Sanya nicht enthalten, Abu Dhabi täglich ab BER und FRA.",
+    "21.10.2026, 08:57 Uhr: Neu: Fly-Air41-A319-Strecken ab Frankfurt im Sommer 2027 (Jerez, Palma, Preveza, Eriwan).",
+    "21.10.2026, 08:57 Uhr: Neu: Marabu fliegt im Winter 2026/27 mit A320neo für Condor (u. a. Frankfurt – Paris, Prag, Zürich, Teneriffa).",
+    "21.10.2026, 08:57 Uhr: Frankfurt – Windhoek: Startdatum 24.06.2027 präzisiert."
   ],
   "routen": {
     "neu": [
@@ -25,17 +28,18 @@
       { "t": "chg", "r": "FRA – TBS", "s": "Frankfurt – Tiflis", "d": "ab 02.05.2027", "f": "4x, ab 14.05. 5x, ab 25.05. täglich, ab 24.09. 6x, ab 05.10. 4x", "n": "Wiederaufnahme, vorher für 15.06.2026 geplant. E190 von German Airways, deren Einsatz laut AeroRoutes (Stand 04.10.2026, vorläufig) ab 28.03.2027 beginnt." },
       { "t": "chg", "r": "MUC – HAJ – AJR", "s": "München – Hannover – Arvidsjaur (Schweden)", "d": "Wiederaufnahme ab 07.12.2026 (laut PasFlights)", "f": "2x pro Woche", "n": "Charterlinie seit 07.01.2026 (Betrieb bis 16.03.2026), vor allem für Fahrzeugtests der Autoindustrie, daneben Reiseveranstalter. Im Winter 2026/27 A321neo statt A320neo (53 Sitze mehr pro Flug). Andere Quellen nennen 09.11.2026 (AeroRoutes, Juli 2026) und 30.11.2026 (aeroTELEGRAPH, AeroRoutes Januar 2026); der Start ist nicht einheitlich belegt." },
       { "t": "new", "r": "FRA – TLV", "s": "Frankfurt – Tel Aviv", "d": "seit 01.08.2026", "f": "täglich", "n": "Condor kehrt laut ynetnews nach Israel zurück. Buchbar war der gesamte August, Flugzeugtyp und Laufzeit darüber hinaus sind in den Quellen nicht genannt." },
+      { "t": "chg", "r": "FRA – VDE · PMI · PVK · EVN", "s": "Frankfurt – Jerez, Palma, Preveza, Eriwan (Fly Air41, A319)", "d": "Jerez ab 03.05.2027, Palma ab 15.05.2027, Preveza ab 29.06.2027, Eriwan ab 02.05.2027", "f": "nicht genannt", "n": "Saisonstrecken mit geleasten A319 von Fly Air41, die ab 01.05.2027 hauptsächlich Condor-Strecken fliegen (AeroRoutes, 20.10.2026). Stockholm startet am 13.05.2027." },
       { "t": "new", "r": "FRA – ATH", "s": "Frankfurt – Athen", "d": "ab 28.04.2027", "f": "täglich", "n": "A320neo." },
       { "t": "new", "r": "FRA – FLR", "s": "Frankfurt – Florenz", "d": "ab 06.05.2027", "f": "2x täglich", "n": "E190 von German Airways." },
       { "t": "new", "r": "FRA – ARN", "s": "Frankfurt – Stockholm Arlanda", "d": "ab 13.05.2027", "f": "2x täglich", "n": "A319 von Fly Air41." },
       { "t": "new", "r": "FRA – ORD", "s": "Frankfurt – Chicago O'Hare", "d": "ab Mai 2027", "f": "täglich", "n": "A330neo." },
-      { "t": "new", "r": "FRA – WDH", "s": "Frankfurt – Windhoek", "d": "ab Ende Juni 2027", "f": "3x pro Woche (Di, Do, Sa)", "n": "Rückkehr nach Pause seit 2021. A330neo." },
+      { "t": "new", "r": "FRA – WDH", "s": "Frankfurt – Windhoek", "d": "ab 24.06.2027", "f": "3x pro Woche (Di, Do, Sa)", "n": "Rückkehr nach Pause seit 2021. A330neo." },
       { "t": "new", "r": "FMO – PMI", "s": "Münster/Osnabrück – Palma de Mallorca", "d": "ab Ende März 2027", "f": "nicht genannt", "n": "Start zu Beginn der Osterferien (fmo.de, airportzentrale.de). Genaues Startdatum und Frequenz nennen die Quellen nicht. Bereits seit 01.05.2026 gab es laut AeroRoutes Palma – Münster täglich (Heston Airlines, A320)." },
       { "t": "new", "r": "FMO – HER", "s": "Münster/Osnabrück – Heraklion", "d": "ab 01.05.2027", "f": "2x, ab 18.05. 3x", "n": "Bisher von LEAV Aviation geflogen." },
       { "t": "new", "r": "FMO – FUE", "s": "Münster/Osnabrück – Fuerteventura", "d": "ab 02.05.2027", "f": "2x pro Woche", "n": "" },
       { "t": "new", "r": "FMO – RHO", "s": "Münster/Osnabrück – Rhodos", "d": "ab 02.05.2027", "f": "1x, ab 19.05. 2x", "n": "" },
       { "t": "new", "r": "FMO – CHQ", "s": "Münster/Osnabrück – Chania", "d": "ab 07.05.2027", "f": "1x, ab 17.05. 2x", "n": "" },
-      { "t": "chg", "r": "FRA/STR – HRG", "s": "Mehr Flüge nach Hurghada", "d": "FRA 12.12.2026 bis 10.01.2027, STR 15.12.2026 bis 08.01.2027", "f": "FRA 7 auf 11, STR 5 auf 7 pro Woche", "n": "Zeitlich begrenzte Aufstockung mit A321neo (FRA) bzw. A321 (STR). Condor wollte sie auf Anfrage nicht bestätigen. Hamburg und München laut airliners.de täglich." },
+      { "t": "chg", "r": "FRA/STR – HRG", "s": "Mehr Flüge nach Hurghada", "d": "FRA 12.12.2026 bis 10.01.2027, STR 15.12.2026 bis 08.01.2027", "f": "FRA 7 auf 11, STR 5 auf 7 pro Woche", "n": "Zeitlich begrenzte Aufstockung mit A321neo (FRA) bzw. A321 (STR). Condor wollte sie auf Anfrage nicht bestätigen. Hamburg und München laut AeroRoutes unverändert täglich." },
       { "t": "chg", "r": "Charter", "s": "Sonderflüge Tahiti, Tokio, Chile", "d": "Jan bis Apr 2027", "f": "einzelne Flüge", "n": "Tahiti im März, Tokio im April, Chile Anfang Januar." }
     ],
     "weg": [
@@ -56,6 +60,7 @@
       { "t": "chg", "w": "Mögliche Bestellung von ca. 6 weiteren A330neo", "d": "Bloomberg, 15.07.2026", "n": "Nicht bestätigt. Condor und Airbus haben keinen Auftrag bekannt gegeben." },
       { "t": "new", "w": "Wet-Lease Embraer E190 (German Airways, Helvetic)", "d": "Winter 2026/27 und Sommer 2027", "n": "Winter: Frankfurt – London Gatwick, Mailand, München, Zürich. Sommer 2027: Zürich, Mailand, Florenz, Tiflis. Anzahl der Flugzeuge nicht genannt." },
       { "t": "new", "w": "Wet-Lease Embraer E190 von German Airways: mindestens 2 Flugzeuge, Kennzeichen D-ABKE", "d": "Stand 31.08.2026", "n": "ch-aviation (05.08.2026): Zwei E190 von German Airways sind an Condor wet-geleast, German Airways betreibt insgesamt neun E190. Frankfurtflyer (31.08.2026) nennt D-ABKE (17 Jahre alt). Das zweite Kennzeichen und Kennzeichen weiterer Flugzeuge sind in den Quellen nicht genannt. Einsatz ab Frankfurt im Winter: London Gatwick 2x, Mailand Malpensa 3x, München 3x, Zürich 1x täglich. A319 von Fly Air41 flogen 2025 für Condor ab Frankfurt (laut AeroRoutes, Februar 2025), Anzahl und Kennzeichen sind nicht genannt. E195-E2 sind in den Quellen nicht belegt." },
+      { "t": "new", "w": "Wet-Lease Marabu (A320neo)", "d": "25.10.2026 bis 27.03.2027", "n": "Laut AeroRoutes (20.10.2026) fliegt Marabu für Condor: Frankfurt – Paris CDG, Prag, Zürich und Teneriffa Süd, Düsseldorf – Teneriffa Süd (nur bis 01.12.2026) und Hamburg – Teneriffa Süd. Ausnahmen sind möglich, Frequenzen und Anzahl der Flugzeuge sind nicht genannt." },
       { "t": "new", "w": "Wet-Lease Fly Air41 (A319) und weitere Partner", "d": "2026/27", "n": "Im Sommer 2026 flogen auch Heston Airlines, European Air Charter und Marabu für Condor. Fly Air41 fliegt ab Mai 2027 Frankfurt – Stockholm." }
     ],
     "minus": [
@@ -93,6 +98,9 @@
     ["Gulf News: Condor Berlin – Abu Dhabi","https://gulfnews.com/business/aviation/uae-germany-travel-abu-dhabi-gets-new-berlin-route-as-condor-launches-daily-flights-1.500712870"],
     ["ch-aviation: Condor Abu Dhabi – Bangkok","https://www.ch-aviation.com/news/168327-condor-to-launch-abu-dhabi-bangkok-fifth-freedom-service"],
     ["ynetnews: Condor Tel Aviv","https://www.ynetnews.com/travel/article/bjyokrhbfg"],
+    ["AeroRoutes: Condor Fly Air41 A319 NS27","https://www.aeroroutes.com/eng/261020-dens27ber"],
+    ["AeroRoutes: Condor Marabu A320neo NW26","https://www.aeroroutes.com/eng/261020-denw26di"],
+    ["AeroRoutes: Condor Windhoek NS27","https://www.aeroroutes.com/eng/260625-dens27wdh"],
     ["Reisetopia: Condor E190 Sommer 2027", "https://reisetopia.de/?p=791853"]
   ]
 }
