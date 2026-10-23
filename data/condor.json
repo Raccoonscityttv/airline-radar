@@ -1,7 +1,7 @@
 {
   "id": "condor",
   "name": "Condor",
-  "stand": "21.10.2026, 08:57 Uhr",
+  "stand": "23.10.2026, 08:36 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
@@ -19,7 +19,8 @@
     "19.10.2026, 13:49 Uhr: Winterflugplan-Stand 18.10.2026 geprüft: Dubai und Sanya nicht enthalten, Abu Dhabi täglich ab BER und FRA.",
     "21.10.2026, 08:57 Uhr: Neu: Fly-Air41-A319-Strecken ab Frankfurt im Sommer 2027 (Jerez, Palma, Preveza, Eriwan).",
     "21.10.2026, 08:57 Uhr: Neu: Marabu fliegt im Winter 2026/27 mit A320neo für Condor (u. a. Frankfurt – Paris, Prag, Zürich, Teneriffa).",
-    "21.10.2026, 08:57 Uhr: Frankfurt – Windhoek: Startdatum 24.06.2027 präzisiert."
+    "21.10.2026, 08:57 Uhr: Frankfurt – Windhoek: Startdatum 24.06.2027 präzisiert.",
+    "23.10.2026, 08:36 Uhr: Keine Änderungen"
   ],
   "routen": {
     "neu": [

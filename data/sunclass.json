@@ -1,18 +1,22 @@
 {
   "id": "sunclass",
   "name": "Sunclass Airlines",
-  "stand": "21.10.2026, 08:58 Uhr",
+  "stand": "23.10.2026, 08:36 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
     "19.10.2026, 13:49 Uhr: Keine Änderungen",
     "19.10.2026, 16:34 Uhr: Keine Änderungen",
-    "21.10.2026, 08:58 Uhr: Keine Änderungen"
+    "21.10.2026, 08:58 Uhr: Keine Änderungen",
+    "23.10.2026, 08:36 Uhr: Neu: Stockholm – Krabi (10.12.2026 bis 25.02.2027, 1x pro Woche, A330neo).",
+    "23.10.2026, 08:36 Uhr: Neu (unbestätigt): Kuusamo – Gran Canaria (EFKU – GCLP) nach Hinweis des Nutzers, in Quellen nicht gefunden."
   ],
   "routen": {
     "neu": [
       { "t": "chg", "r": "HEL – SID", "s": "Helsinki – Sal (Kap Verde)", "d": "ab 13.10.2026", "f": "1x pro Woche (Di)", "n": "Nonstop mit A321neo statt Routing über Stockholm." },
       { "t": "chg", "r": "GOT – SID · OSL – SID", "s": "Göteborg und Oslo – Sal", "d": "ab 29.10.2026", "f": "je 1x pro Woche (Do)", "n": "Jeweils nonstop statt Göteborg – Oslo – Sal. Oslo mit A330neo." },
+      { "t": "new", "r": "ARN – KBV", "s": "Stockholm – Krabi", "d": "10.12.2026 bis 25.02.2027", "f": "1x pro Woche", "n": "Wiederaufnahme der Linien-Charter im Winter 2026/27 mit A330neo (AeroRoutes, 27.08.2026)." },
+      { "t": "new", "r": "KAO – LPA", "s": "Kuusamo – Gran Canaria", "d": "Termine unbekannt", "f": "nicht bekannt", "n": "Hinweis des Nutzers anhand der Flughafenkennungen EFKU – GCLP. Eine Quelle konnte ich nicht finden, Skyscanner führt keinen Direktflug. Bitte als unbestätigt betrachten." },
       { "t": "new", "r": "HEL – PMI · HEL – TFS", "s": "Helsinki – Palma, Teneriffa Süd", "d": "9. bis 18.10.2026", "f": "einzelne Flüge", "n": "Einmalig mit A330neo." }
     ],
     "weg": [
@@ -36,6 +40,7 @@
   },
   "quellen": [
     ["AeroRoutes: Sunclass", "https://www.aeroroutes.com/eng/tag/Sunclass+Airlines"],
+    ["AeroRoutes: Sunclass Stockholm – Krabi NW26","https://www.aeroroutes.com/eng/260827-dknw26kbv"],
     ["AeroRoutes: Sunclass Sal Winter 2026/27", "https://www.aeroroutes.com/eng/260825-dknw26sid"],
     ["aeroTELEGRAPH: Sunclass", "https://www.aerotelegraph.com/tags/sunclass_airlines"],
     ["aeroTELEGRAPH: Norwegian übernimmt Sunclass", "https://www.aerotelegraph.com/airlines/norwegian-uebernimmt-sunclass-airlines-und-holt-sich-damit-airbus-jets-in-die-flotte/jlq40vk"],
