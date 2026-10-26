@@ -1,7 +1,7 @@
 {
   "id": "condor",
   "name": "Condor",
-  "stand": "25.10.2026, 23:49 Uhr",
+  "stand": "26.10.2026, 07:41 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
@@ -21,7 +21,8 @@
     "21.10.2026, 08:57 Uhr: Neu: Marabu fliegt im Winter 2026/27 mit A320neo für Condor (u. a. Frankfurt – Paris, Prag, Zürich, Teneriffa).",
     "21.10.2026, 08:57 Uhr: Frankfurt – Windhoek: Startdatum 24.06.2027 präzisiert.",
     "23.10.2026, 08:36 Uhr: Keine Änderungen",
-    "25.10.2026, 23:49 Uhr: Keine Änderungen"
+    "25.10.2026, 23:49 Uhr: Keine Änderungen",
+    "26.10.2026, 07:41 Uhr: Neu: Zürich – Lamezia Terme und Zürich – Korfu im Sommer 2027 (Reisetopia, 14.08.2026)."
   ],
   "routen": {
     "neu": [
@@ -31,6 +32,7 @@
       { "t": "chg", "r": "MUC – HAJ – AJR", "s": "München – Hannover – Arvidsjaur (Schweden)", "d": "Wiederaufnahme ab 07.12.2026 (laut PasFlights)", "f": "2x pro Woche", "n": "Charterlinie seit 07.01.2026 (Betrieb bis 16.03.2026), vor allem für Fahrzeugtests der Autoindustrie, daneben Reiseveranstalter. Im Winter 2026/27 A321neo statt A320neo (53 Sitze mehr pro Flug). Andere Quellen nennen 09.11.2026 (AeroRoutes, Juli 2026) und 30.11.2026 (aeroTELEGRAPH, AeroRoutes Januar 2026); der Start ist nicht einheitlich belegt." },
       { "t": "new", "r": "FRA – TLV", "s": "Frankfurt – Tel Aviv", "d": "seit 01.08.2026", "f": "täglich", "n": "Condor kehrt laut ynetnews nach Israel zurück. Buchbar war der gesamte August, Flugzeugtyp und Laufzeit darüber hinaus sind in den Quellen nicht genannt." },
       { "t": "chg", "r": "FRA – VDE · PMI · PVK · EVN", "s": "Frankfurt – Jerez, Palma, Preveza, Eriwan (Fly Air41, A319)", "d": "Jerez ab 03.05.2027, Palma ab 15.05.2027, Preveza ab 29.06.2027, Eriwan ab 02.05.2027", "f": "nicht genannt", "n": "Saisonstrecken mit geleasten A319 von Fly Air41, die ab 01.05.2027 hauptsächlich Condor-Strecken fliegen (AeroRoutes, 20.10.2026). Stockholm startet am 13.05.2027." },
+      { "t": "new", "r": "ZRH – SUF · ZRH – CFU", "s": "Zürich – Lamezia Terme, Korfu", "d": "Lamezia ab 17.05.2027, Korfu ab 02.07.2027", "f": "Lamezia 2x pro Woche (A320); Korfu 1x, ab 21.07. 2x pro Woche (A320neo)", "n": "Laut Reisetopia (14.08.2026) Teil des Condor-Angebots ab Zürich im Sommer 2027." },
       { "t": "new", "r": "FRA – ATH", "s": "Frankfurt – Athen", "d": "ab 28.04.2027", "f": "täglich", "n": "A320neo." },
       { "t": "new", "r": "FRA – FLR", "s": "Frankfurt – Florenz", "d": "ab 06.05.2027", "f": "2x täglich", "n": "E190 von German Airways." },
       { "t": "new", "r": "FRA – ARN", "s": "Frankfurt – Stockholm Arlanda", "d": "ab 13.05.2027", "f": "2x täglich", "n": "A319 von Fly Air41." },
@@ -103,6 +105,7 @@
     ["AeroRoutes: Condor Fly Air41 A319 NS27","https://www.aeroroutes.com/eng/261020-dens27ber"],
     ["AeroRoutes: Condor Marabu A320neo NW26","https://www.aeroroutes.com/eng/261020-denw26di"],
     ["AeroRoutes: Condor Windhoek NS27","https://www.aeroroutes.com/eng/260625-dens27wdh"],
-    ["Reisetopia: Condor E190 Sommer 2027", "https://reisetopia.de/?p=791853"]
+    ["Reisetopia: Condor E190 Sommer 2027", "https://reisetopia.de/?p=791853"],
+    ["Reisetopia: Condor Zürich Sommer 2027", "https://reisetopia.de/news/condor-zuerich-angebot-sommer-2027/"]
   ]
 }
