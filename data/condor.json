@@ -71,6 +71,7 @@
     ],
     "minus": [
       { "t": "chg", "w": "Prüfempfehlung für A330neo nach Werkzeugfund", "d": "Stand 15.10.2026", "n": "Airbus empfiehlt Checks beim nächsten Wartungstermin für alle von Januar 2021 bis Juli 2026 gelieferten A330neo (laut AFP-Quelle). Betroffen wären Condors 18 Maschinen. Condor fand bei eigenen Kontrollen keine Auffälligkeiten. Airbus liefert in der Produktion befindliche Maschinen seit 02.10.2026 wieder aus. EASA sieht kein unmittelbares Sicherheitsproblem. Wie die Kontrollen angerechnet werden, ist mit Airbus und EASA offen." },
+      { "t": "chg", "w": "A320-200 D-ASGE (Eintracht-Frankfurt-Flieger)", "d": "Frühjahr 2027", "n": "Eine A320neo ersetzt die Maschine (aeroTELEGRAPH, 26.10.2026). Das Kennzeichen der neuen Maschine wird per Instagram-Abstimmung gewählt." },
       { "t": "cut", "w": "Ältere A320-200 und A321-200 (ceo)", "d": "laufend", "n": "Sollen laut Condor noch einige Jahre fliegen, bis die Flottenerneuerung abgeschlossen ist. Konkrete Ausflottungstermine sind nicht veröffentlicht." }
     ]
   },
@@ -108,6 +109,7 @@
     ["AeroRoutes: Condor Marabu A320neo NW26","https://www.aeroroutes.com/eng/261020-denw26di"],
     ["AeroRoutes: Condor Windhoek NS27","https://www.aeroroutes.com/eng/260625-dens27wdh"],
     ["Reisetopia: Condor E190 Sommer 2027", "https://reisetopia.de/?p=791853"],
-    ["Reisetopia: Condor Zürich Sommer 2027", "https://reisetopia.de/news/condor-zuerich-angebot-sommer-2027/"]
+    ["Reisetopia: Condor Zürich Sommer 2027", "https://reisetopia.de/news/condor-zuerich-angebot-sommer-2027/"],
+    ["aeroTELEGRAPH: Eintracht-Frankfurt-Flieger A320neo", "https://www.aerotelegraph.com/ticker/condor-macht-airbus-a320-neo-zum-neuen-eintracht-frankfurt-flieger/xpx9c0w"]
   ]
 }
