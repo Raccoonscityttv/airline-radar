@@ -1,7 +1,7 @@
 {
   "id": "condor",
   "name": "Condor",
-  "stand": "09.11.2026, 07:43 Uhr",
+  "stand": "09.11.2026, 08:56 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
@@ -25,6 +25,7 @@
     "26.10.2026, 07:41 Uhr: Neu: Zürich – Lamezia Terme und Zürich – Korfu im Sommer 2027 (Reisetopia, 14.08.2026).",
     "01.11.2026, 09:29 Uhr: Keine Änderungen",
     "02.11.2026, 07:47 Uhr: Keine Änderungen",
+    "09.11.2026, 08:56 Uhr: Charter-Eintrag präzisiert: Termine für Chile, Tahiti und Tokio (2027) ergänzt.",
     "09.11.2026, 07:43 Uhr: Keine Änderungen"
   ],
   "routen": {
@@ -47,7 +48,7 @@
       { "t": "new", "r": "FMO – RHO", "s": "Münster/Osnabrück – Rhodos", "d": "ab 02.05.2027", "f": "1x, ab 19.05. 2x", "n": "" },
       { "t": "new", "r": "FMO – CHQ", "s": "Münster/Osnabrück – Chania", "d": "ab 07.05.2027", "f": "1x, ab 17.05. 2x", "n": "" },
       { "t": "chg", "r": "FRA/STR – HRG", "s": "Mehr Flüge nach Hurghada", "d": "FRA 12.12.2026 bis 10.01.2027, STR 15.12.2026 bis 08.01.2027", "f": "FRA 7 auf 11, STR 5 auf 7 pro Woche", "n": "Zeitlich begrenzte Aufstockung mit A321neo (FRA) bzw. A321 (STR). Condor wollte sie auf Anfrage nicht bestätigen. Hamburg und München laut AeroRoutes unverändert täglich." },
-      { "t": "chg", "r": "Charter", "s": "Sonderflüge Tahiti, Tokio, Chile", "d": "Jan bis Apr 2027", "f": "einzelne Flüge", "n": "Tahiti im März, Tokio im April, Chile Anfang Januar." }
+      { "t": "chg", "r": "Charter", "s": "Sonderflüge Chile, Tahiti, Tokio", "d": "Jan bis Apr 2027", "f": "einzelne Flüge", "n": "Chile: 03./04.01.2027 Frankfurt – Rio de Janeiro – Santiago de Chile (A330neo). Tahiti: 08./09.03.2027 Frankfurt – Cancún – Papeete (A330-900). Tokio: drei Rundflüge Frankfurt – Narita, 08./09.03., 12./13.04. und 27./28.04.2027 (A330-900)." }
     ],
     "weg": [
       { "t": "cut", "r": "BER · STR – DXB", "s": "Berlin und Stuttgart – Dubai", "d": "gestrichen am 22.09.2026", "f": "Winter 2026/27", "n": "Gründe laut Condor: Verkehrsrechte. Betroffene Gäste werden umgebucht oder erstattet." },
@@ -111,6 +112,9 @@
     ["AeroRoutes: Condor Windhoek NS27","https://www.aeroroutes.com/eng/260625-dens27wdh"],
     ["Reisetopia: Condor E190 Sommer 2027", "https://reisetopia.de/?p=791853"],
     ["Reisetopia: Condor Zürich Sommer 2027", "https://reisetopia.de/news/condor-zuerich-angebot-sommer-2027/"],
+    ["AeroRoutes: Condor Chile-Charter Jan 2027", "https://www.aeroroutes.com/eng/260917-dejan27scl"],
+    ["aeroTELEGRAPH: Condor Tahiti-Sonderflug 2027", "https://www.aerotelegraph.com/ticker/condor-plant-2027-erneut-sonderflug-nach-tahiti/lktek3q"],
+    ["aeroTELEGRAPH: Condor Tokio-Charter", "https://www.aerotelegraph.com/ticker/condor-plant-drei-charterfluege-nach-tokio/z8hm712"],
     ["aeroTELEGRAPH: Eintracht-Frankfurt-Flieger A320neo", "https://www.aerotelegraph.com/ticker/condor-macht-airbus-a320-neo-zum-neuen-eintracht-frankfurt-flieger/xpx9c0w"]
   ]
 }
