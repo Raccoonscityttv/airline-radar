@@ -1,7 +1,7 @@
 {
   "id": "marabu",
   "name": "Marabu",
-  "stand": "09.11.2026, 07:43 Uhr",
+  "stand": "15.11.2026, 18:14 Uhr",
   "log": [
     "19.10.2026, 17:53 Uhr: Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "21.10.2026, 08:58 Uhr: Zubringer für Condor konkretisiert (Winter 2026/27, sechs Strecken).",
@@ -11,6 +11,9 @@
     "01.11.2026, 09:29 Uhr: Keine Änderungen",
     "02.11.2026, 07:47 Uhr: Keine Änderungen",
     "04.11.2026, 10:57 Uhr: Keine Änderungen",
+    "15.11.2026, 18:14 Uhr: Nürnberg – Lamezia Terme: Start 03.06.2027 (2x pro Woche) und Aufstockungen Palma, Olbia, Kavala ergänzt.",
+    "15.11.2026, 18:14 Uhr: Flotte: drittes Flugzeug in Nürnberg ab Juni 2027.",
+    "15.11.2026, 18:14 Uhr: Hamburg – Triest: Condor ersetzt Codeshare ab 16.05.2027.",
     "09.11.2026, 07:43 Uhr: Keine Änderungen"
   ],
   "routen": {
@@ -19,9 +22,17 @@
         "t": "new",
         "r": "NUE – SUF",
         "s": "Nürnberg – Lamezia Terme",
-        "d": "ab Sommer 2027 (Starttermin nicht genannt)",
+        "d": "ab 03.06.2027",
         "f": "2x pro Woche (Mo, Do)",
-        "n": "Meldung von airliners.de vom 06.10.2026."
+        "n": "A320neo (DI6788/DI6789), Nürnberg 19:00 – Lamezia 21:10 (AeroRoutes, 23.09.2026). Meldung von airliners.de vom 06.10.2026."
+      },
+      {
+        "t": "chg",
+        "r": "NUE – PMI · OLB · KVA",
+        "s": "Nürnberg – Palma, Olbia, Kavala",
+        "d": "Sommer 2027, Palma ab Juni, Kavala ab 07.06.2027",
+        "f": "Palma 2x täglich, Olbia 5x pro Woche",
+        "n": "Aufstockung laut aeroTELEGRAPH (27.10.2026). Starttermin von Olbia nicht genannt. Ob Kavala neu ist, geht aus der Quelle nicht hervor. Dritte Maschine in Nürnberg ab Juni 2027."
       },
       {
         "t": "new",
@@ -88,6 +99,14 @@
         "d": "Saison endete 11.10.2026",
         "f": "bisher 1x pro Woche",
         "n": "Flüge vom 03.05. bis 11.10.2026. Ob 2027 wieder, ist nicht bekannt."
+      },
+      {
+        "t": "cut",
+        "r": "HAM – TRS (Codeshare mit Condor)",
+        "s": "Hamburg – Triest",
+        "d": "Sommer 2027",
+        "f": "1x pro Woche",
+        "n": "Condor fliegt die Strecke ab 16.05.2027 selbst und ersetzt laut AeroRoutes (09.11.2026) den Codeshare mit Marabu."
       }
     ]
   },
@@ -110,12 +129,15 @@
         "t": "new",
         "w": "2 weitere Airbus A320neo",
         "d": "bis 2027",
-        "n": "Marabu wächst 2027 auf 14 A320neo (airliners.de, 06.10.2026). Die Planung sah langfristig bis zu 15 Flugzeuge vor (meilenoptimieren, Dezember 2025)."
+        "n": "Ab Juni 2027 stationiert Marabu ein drittes Flugzeug in Nürnberg (aeroTELEGRAPH, 27.10.2026). Marabu wächst 2027 auf 14 A320neo (airliners.de, 06.10.2026). Die Planung sah langfristig bis zu 15 Flugzeuge vor (meilenoptimieren, Dezember 2025)."
       }
     ],
     "minus": []
   },
   "quellen": [
+    ["aeroTELEGRAPH: Marabu stationiert dritten Airbus in Nürnberg", "https://www.aerotelegraph.com/ticker/marabu-stationiert-dritten-airbus-in-nuernberg-und-nimmt-zwei-neue-strecken-auf/001trkw"],
+    ["AeroRoutes: Marabu Nürnberg – Lamezia Terme", "https://www.aeroroutes.com/eng/260923-dins27suf"],
+    ["AeroRoutes: Condor Hamburg – Triest NS27", "https://www.aeroroutes.com/eng/261109-dens27trs"],
     [
       "AeroRoutes: Condor Marabu A320neo NW26",
       "https://www.aeroroutes.com/eng/261020-denw26di"

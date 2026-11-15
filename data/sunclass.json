@@ -1,7 +1,7 @@
 {
   "id": "sunclass",
   "name": "Sunclass Airlines",
-  "stand": "09.11.2026, 07:43 Uhr",
+  "stand": "15.11.2026, 18:14 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
@@ -15,6 +15,8 @@
     "01.11.2026, 09:29 Uhr: Keine Änderungen",
     "02.11.2026, 07:47 Uhr: Keine Änderungen",
     "04.11.2026, 10:57 Uhr: Keine Änderungen",
+    "15.11.2026, 18:14 Uhr: Norwegian-Übernahme: EU-Freigabe steht aus, Abschluss im 4. Quartal 2026 angestrebt (Flygbladet).",
+    "15.11.2026, 18:14 Uhr: Flotte: A330-300 OY-VKI soll an den Leasinggeber zurück.",
     "09.11.2026, 07:43 Uhr: Keine Änderungen"
   ],
   "routen": {
@@ -36,15 +38,17 @@
       ["A321-200", 6], ["A321neo", 3], ["A330-900", 3]
     ],
     "plus": [
-      { "t": "chg", "w": "Übernahme durch Norwegian", "d": "angekündigt 16.06.2026", "n": "Norwegian kauft die Nordic Leisure Travel Group mit Sunclass für ca. 7,94 Mrd. SEK. Abschluss ist für das 2. Halbjahr 2026 geplant. Offen sind die Zustimmung der Aktionäre und der Behörden. Die A330-900 wären Norwegians erste Langstreckenflugzeuge seit der Ausmusterung der 787." },
+      { "t": "chg", "w": "Übernahme durch Norwegian", "d": "angekündigt 16.06.2026", "n": "Norwegian kauft die Nordic Leisure Travel Group mit Sunclass für ca. 7,94 Mrd. SEK. Die außerordentliche Hauptversammlung stimmte der Aktienausgabe am 08.07.2026 zu. Laut Flygbladet (Stand 26.10.2026) steht die Freigabe der EU-Wettbewerbsbehörde aus, der Abschluss wird für das 4. Quartal 2026 angestrebt. Die dänische Betriebsgenehmigung von Sunclass ist öffentlich noch nicht behandelt. Die A330-900 wären Norwegians erste Langstreckenflugzeuge seit der Ausmusterung der 787." },
       { "t": "new", "w": "Weitere A321neo", "d": "laufende Auslieferungen", "n": "Ein A321neo wurde im Juli 2025 von Aviation Capital Group übergeben. Weitere Bestellungen ersetzen die älteren A321-200. Die Zahl offener Bestellungen ist nicht belegt." }
     ],
     "minus": [
+      { "t": "cut", "w": "Airbus A330-300 OY-VKI", "d": "Rückgabe geplant", "n": "Laut Flygbladet (Stand 26.10.2026) geht die Maschine an den Leasinggeber zurück. Ein Termin ist nicht genannt." },
       { "t": "cut", "w": "Airbus A321 OY-TCG", "d": "nach Hard Landing Sep 2024", "n": "In Skiathos beschädigt, Reparatur zu teuer, Rückgabe an den Leasinggeber SMBC und Verschrottung." },
       { "t": "cut", "w": "A321-200 durch A321neo ersetzt", "d": "laufend", "n": "Sechs A321-200 sind noch im Einsatz und sollen schrittweise ersetzt werden." }
     ]
   },
   "quellen": [
+    ["Flygbladet: Sunclass-Affäre", "https://flygbladet.se/tystnaden-efter-sunclass-affaren-borjar-bli-lang/"],
     ["AeroRoutes: Sunclass", "https://www.aeroroutes.com/eng/tag/Sunclass+Airlines"],
     ["AeroRoutes: Sunclass Stockholm – Krabi NW26","https://www.aeroroutes.com/eng/260827-dknw26kbv"],
     ["AeroRoutes: Sunclass Sal Winter 2026/27", "https://www.aeroroutes.com/eng/260825-dknw26sid"],
