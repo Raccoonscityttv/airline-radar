@@ -1,7 +1,7 @@
 {
   "id": "condor",
   "name": "Condor",
-  "stand": "15.11.2026, 18:20 Uhr",
+  "stand": "16.11.2026, 07:41 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
@@ -29,7 +29,8 @@
     "15.11.2026, 18:14 Uhr: Wet-Lease: Helvetic Airways fliegt laut aviation.direct im Sommer 2027 nicht für Condor.",
     "15.11.2026, 18:20 Uhr: Frankfurt – Abu Dhabi – Bangkok bestätigt, Start war am 04.11.2026. Sonst keine neuen Linien- oder Charterflüge gefunden.",
     "09.11.2026, 08:56 Uhr: Charter-Eintrag präzisiert: Termine für Chile, Tahiti und Tokio (2027) ergänzt.",
-    "09.11.2026, 07:43 Uhr: Keine Änderungen"
+    "09.11.2026, 07:43 Uhr: Keine Änderungen",
+    "16.11.2026, 07:41 Uhr: A330neo-Prüfungen: Eintrag um Umfang (139 Maschinen, Auslieferungen bis Ende Mai 2026 laut aviationa2z) und Termin (Airbus legt EASA bis Mitte November ein Konzept vor, laut CAPA) ergänzt."
   ],
   "routen": {
     "neu": [
@@ -77,7 +78,7 @@
     ],
     "minus": [
       { "t": "cut", "w": "Wet-Lease Helvetic Airways (E190-E2/E195-E2)", "d": "Sommer 2027", "n": "Laut aviation.direct (06.11.2026) plant Helvetic im Sommer 2027 nicht mehr für Condor zu fliegen: rund 17 der 21 Flugzeuge fliegen für Swiss, die übrigen vier im eigenen Netz, für Charter und als Reserve. Condors Betreibergesellschaft wollte sich nicht äußern. Welche Strecken Condor stattdessen mit welchem Partner fliegt, ist in den Quellen nicht genannt. Die Zürich-Strecken sind im Sommer 2027 laut Plan weiter aufgeführt." },
-      { "t": "chg", "w": "Prüfempfehlung für A330neo nach Werkzeugfund", "d": "Stand 15.10.2026", "n": "Airbus empfiehlt Checks beim nächsten Wartungstermin für alle von Januar 2021 bis Juli 2026 gelieferten A330neo (laut AFP-Quelle). Betroffen wären Condors 18 Maschinen. Condor fand bei eigenen Kontrollen keine Auffälligkeiten. Airbus liefert in der Produktion befindliche Maschinen seit 02.10.2026 wieder aus. EASA sieht kein unmittelbares Sicherheitsproblem. Wie die Kontrollen angerechnet werden, ist mit Airbus und EASA offen." },
+      { "t": "chg", "w": "Prüfempfehlung für A330neo nach Werkzeugfund", "d": "Stand 15.10.2026", "n": "Airbus empfiehlt Checks beim nächsten Wartungstermin für alle von Januar 2021 bis Juli 2026 gelieferten A330neo (laut AFP-Quelle). Betroffen wären Condors 18 Maschinen. Laut aviationa2z (15.10.2026) umfassen die empfohlenen Checks 139 Maschinen (Auslieferungen bis Ende Mai 2026), und EASA soll bis Mitte November die weiteren Schritte klären; laut CAPA will Airbus der EASA bis Mitte November 2026 sein Vorgehen vorlegen. Condor fand bei eigenen Kontrollen keine Auffälligkeiten. Airbus liefert in der Produktion befindliche Maschinen seit 02.10.2026 wieder aus. EASA sieht kein unmittelbares Sicherheitsproblem. Wie die Kontrollen angerechnet werden, ist mit Airbus und EASA offen." },
       { "t": "chg", "w": "A320-200 D-ASGE (Eintracht-Frankfurt-Flieger)", "d": "Frühjahr 2027", "n": "Eine A320neo ersetzt die Maschine (aeroTELEGRAPH, 26.10.2026). Das Kennzeichen der neuen Maschine wird per Instagram-Abstimmung gewählt." },
       { "t": "cut", "w": "Ältere A320-200 und A321-200 (ceo)", "d": "laufend", "n": "Sollen laut Condor noch einige Jahre fliegen, bis die Flottenerneuerung abgeschlossen ist. Konkrete Ausflottungstermine sind nicht veröffentlicht." }
     ]
@@ -123,6 +124,8 @@
     ["AeroRoutes: Condor Chile-Charter Jan 2027", "https://www.aeroroutes.com/eng/260917-dejan27scl"],
     ["aeroTELEGRAPH: Condor Tahiti-Sonderflug 2027", "https://www.aerotelegraph.com/ticker/condor-plant-2027-erneut-sonderflug-nach-tahiti/lktek3q"],
     ["aeroTELEGRAPH: Condor Tokio-Charter", "https://www.aerotelegraph.com/ticker/condor-plant-drei-charterfluege-nach-tokio/z8hm712"],
+    ["aviationa2z: Condors A330neo in Toulouse", "https://aviationa2z.com/index.php/2026/10/15/condors-airbus-a330neo-stuck-at-toulouse/"],
+    ["CAPA: Airbus legt EASA Vorgehen zu A330-Produktionsmängeln vor", "https://centreforaviation.com/news/airbus-to-present-full-policy-on-a330-production-flaws-to-easa-by-mid-nov-2026-1375761"],
     ["aeroTELEGRAPH: Eintracht-Frankfurt-Flieger A320neo", "https://www.aerotelegraph.com/ticker/condor-macht-airbus-a320-neo-zum-neuen-eintracht-frankfurt-flieger/xpx9c0w"]
   ]
 }

@@ -1,7 +1,7 @@
 {
   "id": "marabu",
   "name": "Marabu",
-  "stand": "15.11.2026, 18:14 Uhr",
+  "stand": "16.11.2026, 07:41 Uhr",
   "log": [
     "19.10.2026, 17:53 Uhr: Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "21.10.2026, 08:58 Uhr: Zubringer für Condor konkretisiert (Winter 2026/27, sechs Strecken).",
@@ -14,7 +14,8 @@
     "15.11.2026, 18:14 Uhr: Nürnberg – Lamezia Terme: Start 03.06.2027 (2x pro Woche) und Aufstockungen Palma, Olbia, Kavala ergänzt.",
     "15.11.2026, 18:14 Uhr: Flotte: drittes Flugzeug in Nürnberg ab Juni 2027.",
     "15.11.2026, 18:14 Uhr: Hamburg – Triest: Condor ersetzt Codeshare ab 16.05.2027.",
-    "09.11.2026, 07:43 Uhr: Keine Änderungen"
+    "09.11.2026, 07:43 Uhr: Keine Änderungen",
+    "16.11.2026, 07:41 Uhr: Keine Änderungen"
   ],
   "routen": {
     "neu": [
