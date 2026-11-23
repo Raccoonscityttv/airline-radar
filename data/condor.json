@@ -1,7 +1,7 @@
 {
   "id": "condor",
   "name": "Condor",
-  "stand": "23.11.2026, 12:17 Uhr",
+  "stand": "23.11.2026, 12:28 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
@@ -32,7 +32,8 @@
     "09.11.2026, 07:43 Uhr: Keine Änderungen",
     "16.11.2026, 07:41 Uhr: A330neo-Prüfungen: Eintrag um Umfang (139 Maschinen, Auslieferungen bis Ende Mai 2026 laut aviationa2z) und Termin (Airbus legt EASA bis Mitte November ein Konzept vor, laut CAPA) ergänzt.",
     "23.11.2026, 07:46 Uhr: Keine Änderungen",
-    "23.11.2026, 12:17 Uhr: Neues Feld \"e\" (erfasst am) je Eintrag ergänzt. Keine inhaltlichen Änderungen."
+    "23.11.2026, 12:17 Uhr: Neues Feld \"e\" (erfasst am) je Eintrag ergänzt. Keine inhaltlichen Änderungen.",
+    "23.11.2026, 12:28 Uhr: Flugpläne W2027 (Stand 23.11.2026) und S2027 (Stand 22.11.2026) abgeglichen: Tel Aviv (Winter nicht ganzsaisonal), Johannesburg (im Sommer 2027 nicht enthalten) und Triest (im Sommerplan nicht aufgeführt) ergänzt."
   ],
   "routen": {
     "neu": [
@@ -40,7 +41,7 @@
       { "t": "new", "e": "19.10.2026", "r": "BER · FRA – AUH", "s": "Berlin und Frankfurt – Abu Dhabi (Etihad-Codeshare)", "d": "Berlin seit 15.10.2026, Frankfurt ab Winter 2026/27", "f": "täglich", "n": "Berlin ganzjährig mit A320neo (180 Sitze), ab 25.10. Abflug 10:00 Uhr. Frankfurt wurde für Sommer 2026 ausgesetzt (aviation.direct, 25.03.2026). Der Winterflugplan führt Abu Dhabi täglich ab BER und FRA. Frankfurt – Abu Dhabi – Bangkok täglich seit 04.11.2026 mit A330neo (Condor-Pressemitteilung vom 04.11.2026), zusätzlich zum bestehenden Nonstop-Flug Frankfurt – Bangkok." },
       { "t": "chg", "e": "19.10.2026", "r": "FRA – TBS", "s": "Frankfurt – Tiflis", "d": "ab 02.05.2027", "f": "4x, ab 14.05. 5x, ab 25.05. täglich, ab 24.09. 6x, ab 05.10. 4x", "n": "Wiederaufnahme, vorher für 15.06.2026 geplant. E190 von German Airways, deren Einsatz laut AeroRoutes (Stand 04.10.2026, vorläufig) ab 28.03.2027 beginnt." },
       { "t": "chg", "e": "19.10.2026", "r": "MUC – HAJ – AJR", "s": "München – Hannover – Arvidsjaur (Schweden)", "d": "Wiederaufnahme ab 07.12.2026 (laut PasFlights)", "f": "2x pro Woche", "n": "Charterlinie seit 07.01.2026 (Betrieb bis 16.03.2026), vor allem für Fahrzeugtests der Autoindustrie, daneben Reiseveranstalter. Im Winter 2026/27 A321neo statt A320neo (53 Sitze mehr pro Flug). Andere Quellen nennen 09.11.2026 (AeroRoutes, Juli 2026) und 30.11.2026 (aeroTELEGRAPH, AeroRoutes Januar 2026); der Start ist nicht einheitlich belegt." },
-      { "t": "new", "e": "19.10.2026", "r": "FRA – TLV", "s": "Frankfurt – Tel Aviv", "d": "seit 01.08.2026", "f": "täglich", "n": "Condor kehrt laut ynetnews nach Israel zurück. Buchbar war der gesamte August, Flugzeugtyp und Laufzeit darüber hinaus sind in den Quellen nicht genannt." },
+      { "t": "new", "e": "19.10.2026", "r": "FRA – TLV", "s": "Frankfurt – Tel Aviv", "d": "seit 01.08.2026", "f": "täglich", "n": "Condor kehrt laut ynetnews nach Israel zurück. Buchbar war der gesamte August, Flugzeugtyp und Laufzeit darüber hinaus sind in den Quellen nicht genannt. Laut Condor-Flugplan W2027 (Stand 23.11.2026) täglich, aber nicht ganzsaisonal (Kennzeichnung \"*\"); im Flugplan S2027 (Stand 22.11.2026) täglich ohne Einschränkung." },
       { "t": "chg", "e": "21.10.2026", "r": "FRA – VDE · PMI · PVK · EVN", "s": "Frankfurt – Jerez, Palma, Preveza, Eriwan (Fly Air41, A319)", "d": "Jerez ab 03.05.2027, Palma ab 15.05.2027, Preveza ab 29.06.2027, Eriwan ab 02.05.2027", "f": "nicht genannt", "n": "Saisonstrecken mit geleasten A319 von Fly Air41, die ab 01.05.2027 hauptsächlich Condor-Strecken fliegen (AeroRoutes, 20.10.2026). Stockholm startet am 13.05.2027." },
       { "t": "new", "e": "19.10.2026", "r": "ZRH – SUF · ZRH – CFU", "s": "Zürich – Lamezia Terme, Korfu", "d": "Lamezia ab 17.05.2027, Korfu ab 02.07.2027", "f": "Lamezia 2x pro Woche (A320); Korfu 1x, ab 21.07. 2x pro Woche (A320neo)", "n": "Laut Reisetopia (14.08.2026) Teil des Condor-Angebots ab Zürich im Sommer 2027." },
       { "t": "new", "e": "19.10.2026", "r": "FRA – ATH", "s": "Frankfurt – Athen", "d": "ab 28.04.2027", "f": "täglich", "n": "A320neo." },
@@ -54,13 +55,13 @@
       { "t": "new", "e": "19.10.2026", "r": "FMO – RHO", "s": "Münster/Osnabrück – Rhodos", "d": "ab 02.05.2027", "f": "1x, ab 19.05. 2x", "n": "" },
       { "t": "new", "e": "19.10.2026", "r": "FMO – CHQ", "s": "Münster/Osnabrück – Chania", "d": "ab 07.05.2027", "f": "1x, ab 17.05. 2x", "n": "" },
       { "t": "chg", "e": "19.10.2026", "r": "FRA/STR – HRG", "s": "Mehr Flüge nach Hurghada", "d": "FRA 12.12.2026 bis 10.01.2027, STR 15.12.2026 bis 08.01.2027", "f": "FRA 7 auf 11, STR 5 auf 7 pro Woche", "n": "Zeitlich begrenzte Aufstockung mit A321neo (FRA) bzw. A321 (STR). Condor wollte sie auf Anfrage nicht bestätigen. Hamburg und München laut AeroRoutes unverändert täglich." },
-      { "t": "new", "e": "15.11.2026", "r": "HAM – TRS", "s": "Hamburg – Triest", "d": "ab 16.05.2027", "f": "1x pro Woche", "n": "A320neo (DE3514/DE3515), Hamburg 11:05 – Triest 12:50, zurück 13:45 – 15:30 (AeroRoutes, 09.11.2026). Ersetzt laut AeroRoutes den bisherigen Codeshare mit Marabu auf dieser Strecke." },
+      { "t": "new", "e": "15.11.2026", "r": "HAM – TRS", "s": "Hamburg – Triest", "d": "ab 16.05.2027", "f": "1x pro Woche", "n": "A320neo (DE3514/DE3515), Hamburg 11:05 – Triest 12:50, zurück 13:45 – 15:30 (AeroRoutes, 09.11.2026). Ersetzt laut AeroRoutes den bisherigen Codeshare mit Marabu auf dieser Strecke. Im Condor-Flugplan S2027 (Stand 22.11.2026) ist Triest nicht aufgeführt, ob die Strecke weiter geplant ist, ist offen." },
       { "t": "chg", "e": "19.10.2026", "r": "Charter", "s": "Sonderflüge Chile, Tahiti, Tokio", "d": "Jan bis Apr 2027", "f": "einzelne Flüge", "n": "Chile: 03./04.01.2027 Frankfurt – Rio de Janeiro – Santiago de Chile (A330neo). Tahiti: 08./09.03.2027 Frankfurt – Cancún – Papeete (A330-900). Tokio: drei Rundflüge Frankfurt – Narita, 08./09.03., 12./13.04. und 27./28.04.2027 (A330-900)." }
     ],
     "weg": [
       { "t": "cut", "e": "19.10.2026", "r": "BER · STR – DXB", "s": "Berlin und Stuttgart – Dubai", "d": "gestrichen am 22.09.2026", "f": "Winter 2026/27", "n": "Gründe laut Condor: Verkehrsrechte. Betroffene Gäste werden umgebucht oder erstattet." },
       { "t": "cut", "e": "19.10.2026", "r": "FRA – BKK – SYX", "s": "Frankfurt – Sanya (via Bangkok)", "d": "letzter Flug 22.10.2026", "f": "bisher 3x pro Woche", "n": "Rückkehr nach Winter 2026/27 offen." },
-      { "t": "chg", "e": "19.10.2026", "r": "FRA – JNB", "s": "Frankfurt – Johannesburg", "d": "ab 25.11.2026", "f": "2x statt 3x pro Woche", "n": "Reduzierung." }
+      { "t": "chg", "e": "19.10.2026", "r": "FRA – JNB", "s": "Frankfurt – Johannesburg", "d": "ab 25.11.2026", "f": "2x statt 3x pro Woche", "n": "Reduzierung. Laut Flugplan W2027 (Stand 23.11.2026) Mo und Sa. Im Flugplan S2027 ist Johannesburg nicht enthalten." }
     ]
   },
   "flotte": {
@@ -110,7 +111,8 @@
     ["AeroRoutes: Hannover – Arvidsjaur NW26","https://www.aeroroutes.com/eng/260709-denw26ajr"],
     ["AeroRoutes: Münster NW26","https://www.aeroroutes.com/eng/260709-denw26fmo"],
     ["airliners.de: Hurghada Winter 2026/27","https://www.airliners.de/condor-hurghada-winterflugplan-2026-27/89365"],
-    ["Condor: Flugplan Winter 2026/27 (Stand 18.10.2026)","https://www.condor.com/de/generated/flugplan_W2027.pdf"],
+    ["Condor: Flugplan Winter 2026/27 (Stand 23.11.2026)","https://www.condor.com/de/generated/flugplan_W2027.pdf"],
+    ["Condor: Flugplan Sommer 2027 (Stand 22.11.2026)","https://www.condor.com/de/generated/flugplan_S2027.pdf"],
     ["FMO: Condor Sommer 2027","https://www.fmo.de/en/article/condor-verkuendet-erweiterung-des-flugplans-ab-fmo-fuer-den-sommer-2027/"],
     ["touristik-aktuell: Winterflugplan FMO","https://www.touristik-aktuell.de/verkehr/flughafen-muenster-osnabrueck-erweitert-winterflugplan/"],
     ["AeroRoutes: Condor Palma 2026","https://www.aeroroutes.com/eng/260325-dens26pmi"],
