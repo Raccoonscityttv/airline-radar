@@ -1,7 +1,7 @@
 {
   "id": "sunclass",
   "name": "Sunclass Airlines",
-  "stand": "23.11.2026, 12:14 Uhr",
+  "stand": "23.11.2026, 12:17 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
@@ -20,19 +20,18 @@
     "09.11.2026, 07:43 Uhr: Keine Änderungen",
     "16.11.2026, 07:41 Uhr: Keine Änderungen",
     "23.11.2026, 07:46 Uhr: Keine Änderungen",
-    "23.11.2026, 12:14 Uhr: Norwegian-Übernahme: Q3-Bericht vom 28.10.2026 ergänzt (Verfahren läuft planmäßig, Abschluss bis Jahresende angestrebt, EU-Freigabe steht aus)."
+    "23.11.2026, 12:14 Uhr: Norwegian-Übernahme: Q3-Bericht vom 28.10.2026 ergänzt (Verfahren läuft planmäßig, Abschluss bis Jahresende angestrebt, EU-Freigabe steht aus).",
+    "23.11.2026, 12:17 Uhr: Neues Feld \"e\" (erfasst am) je Eintrag ergänzt. Erledigte Einträge entfernt: Helsinki – Palma/Teneriffa (Okt 2026), Vlora (Saison 2026), A321 OY-TCG (Schaden 2024)."
   ],
   "routen": {
     "neu": [
-      { "t": "chg", "r": "HEL – SID", "s": "Helsinki – Sal (Kap Verde)", "d": "ab 13.10.2026", "f": "1x pro Woche (Di)", "n": "Nonstop mit A321neo statt Routing über Stockholm." },
-      { "t": "chg", "r": "GOT – SID · OSL – SID", "s": "Göteborg und Oslo – Sal", "d": "ab 29.10.2026", "f": "je 1x pro Woche (Do)", "n": "Jeweils nonstop statt Göteborg – Oslo – Sal. Oslo mit A330neo." },
-      { "t": "new", "r": "ARN – KBV", "s": "Stockholm – Krabi", "d": "10.12.2026 bis 25.02.2027", "f": "1x pro Woche", "n": "Wiederaufnahme der Linien-Charter im Winter 2026/27 mit A330neo (AeroRoutes, 27.08.2026)." },
-      { "t": "new", "r": "KAO – LPA", "s": "Kuusamo – Gran Canaria", "d": "Termine unbekannt", "f": "nicht bekannt", "n": "Hinweis des Nutzers anhand der Flughafenkennungen EFKU – GCLP. Eine Quelle konnte ich nicht finden, Skyscanner führt keinen Direktflug. Bitte als unbestätigt betrachten." },
-      { "t": "new", "r": "HEL – PMI · HEL – TFS", "s": "Helsinki – Palma, Teneriffa Süd", "d": "9. bis 18.10.2026", "f": "einzelne Flüge", "n": "Einmalig mit A330neo." }
+      { "t": "chg", "e": "19.10.2026", "r": "HEL – SID", "s": "Helsinki – Sal (Kap Verde)", "d": "ab 13.10.2026", "f": "1x pro Woche (Di)", "n": "Nonstop mit A321neo statt Routing über Stockholm." },
+      { "t": "chg", "e": "19.10.2026", "r": "GOT – SID · OSL – SID", "s": "Göteborg und Oslo – Sal", "d": "ab 29.10.2026", "f": "je 1x pro Woche (Do)", "n": "Jeweils nonstop statt Göteborg – Oslo – Sal. Oslo mit A330neo." },
+      { "t": "new", "e": "23.10.2026", "r": "ARN – KBV", "s": "Stockholm – Krabi", "d": "10.12.2026 bis 25.02.2027", "f": "1x pro Woche", "n": "Wiederaufnahme der Linien-Charter im Winter 2026/27 mit A330neo (AeroRoutes, 27.08.2026)." },
+      { "t": "new", "e": "23.10.2026", "r": "KAO – LPA", "s": "Kuusamo – Gran Canaria", "d": "Termine unbekannt", "f": "nicht bekannt", "n": "Hinweis des Nutzers anhand der Flughafenkennungen EFKU – GCLP. Eine Quelle konnte ich nicht finden, Skyscanner führt keinen Direktflug. Bitte als unbestätigt betrachten." }
     ],
     "weg": [
-      { "t": "cut", "r": "CPH · OSL · ARN – VLO", "s": "Kopenhagen, Oslo, Stockholm – Vlora", "d": "Saison endete im Sep 2026", "f": "bisher je 1x pro Woche", "n": "Nur für Sommer 2026 geplant. Ob 2027 wieder, ist nicht bekannt." },
-      { "t": "cut", "r": "GOT – OSL – SID · HEL – ARN – SID", "s": "Bisherige Routings nach Sal mit Zwischenstopp", "d": "Winter 2026/27", "f": "ersetzt", "n": "Durch die Nonstop-Strecken oben ersetzt." }
+      { "t": "cut", "e": "19.10.2026", "r": "GOT – OSL – SID · HEL – ARN – SID", "s": "Bisherige Routings nach Sal mit Zwischenstopp", "d": "Winter 2026/27", "f": "ersetzt", "n": "Durch die Nonstop-Strecken oben ersetzt." }
     ]
   },
   "flotte": {
@@ -41,13 +40,12 @@
       ["A321-200", 6], ["A321neo", 3], ["A330-900", 3]
     ],
     "plus": [
-      { "t": "chg", "w": "Übernahme durch Norwegian", "d": "angekündigt 16.06.2026", "n": "Norwegian kauft die Nordic Leisure Travel Group mit Sunclass für ca. 7,94 Mrd. SEK. Die außerordentliche Hauptversammlung stimmte der Aktienausgabe am 08.07.2026 zu. Laut Flygbladet (Stand 26.10.2026) steht die Freigabe der EU-Wettbewerbsbehörde aus, der Abschluss wird für das 4. Quartal 2026 angestrebt. Norwegian bestätigt im Q3-Bericht (28.10.2026), dass das Genehmigungsverfahren planmäßig läuft und der Abschluss bis Jahresende angestrebt wird, vorbehaltlich der EU-Freigabe. Eine Entscheidung oder ein genauer Termin ist nicht genannt. Die dänische Betriebsgenehmigung von Sunclass ist öffentlich noch nicht behandelt. Die A330-900 wären Norwegians erste Langstreckenflugzeuge seit der Ausmusterung der 787." },
-      { "t": "new", "w": "Weitere A321neo", "d": "laufende Auslieferungen", "n": "Ein A321neo wurde im Juli 2025 von Aviation Capital Group übergeben. Weitere Bestellungen ersetzen die älteren A321-200. Die Zahl offener Bestellungen ist nicht belegt." }
+      { "t": "chg", "e": "19.10.2026", "w": "Übernahme durch Norwegian", "d": "angekündigt 16.06.2026", "n": "Norwegian kauft die Nordic Leisure Travel Group mit Sunclass für ca. 7,94 Mrd. SEK. Die außerordentliche Hauptversammlung stimmte der Aktienausgabe am 08.07.2026 zu. Laut Flygbladet (Stand 26.10.2026) steht die Freigabe der EU-Wettbewerbsbehörde aus, der Abschluss wird für das 4. Quartal 2026 angestrebt. Norwegian bestätigt im Q3-Bericht (28.10.2026), dass das Genehmigungsverfahren planmäßig läuft und der Abschluss bis Jahresende angestrebt wird, vorbehaltlich der EU-Freigabe. Eine Entscheidung oder ein genauer Termin ist nicht genannt. Die dänische Betriebsgenehmigung von Sunclass ist öffentlich noch nicht behandelt. Die A330-900 wären Norwegians erste Langstreckenflugzeuge seit der Ausmusterung der 787." },
+      { "t": "new", "e": "19.10.2026", "w": "Weitere A321neo", "d": "laufende Auslieferungen", "n": "Ein A321neo wurde im Juli 2025 von Aviation Capital Group übergeben. Weitere Bestellungen ersetzen die älteren A321-200. Die Zahl offener Bestellungen ist nicht belegt." }
     ],
     "minus": [
-      { "t": "cut", "w": "Airbus A330-300 OY-VKI", "d": "Rückgabe geplant", "n": "Laut Flygbladet (Stand 26.10.2026) geht die Maschine an den Leasinggeber zurück. Ein Termin ist nicht genannt." },
-      { "t": "cut", "w": "Airbus A321 OY-TCG", "d": "nach Hard Landing Sep 2024", "n": "In Skiathos beschädigt, Reparatur zu teuer, Rückgabe an den Leasinggeber SMBC und Verschrottung." },
-      { "t": "cut", "w": "A321-200 durch A321neo ersetzt", "d": "laufend", "n": "Sechs A321-200 sind noch im Einsatz und sollen schrittweise ersetzt werden." }
+      { "t": "cut", "e": "19.10.2026", "w": "Airbus A330-300 OY-VKI", "d": "Rückgabe geplant", "n": "Laut Flygbladet (Stand 26.10.2026) geht die Maschine an den Leasinggeber zurück. Ein Termin ist nicht genannt." },
+      { "t": "cut", "e": "19.10.2026", "w": "A321-200 durch A321neo ersetzt", "d": "laufend", "n": "Sechs A321-200 sind noch im Einsatz und sollen schrittweise ersetzt werden." }
     ]
   },
   "quellen": [

@@ -196,7 +196,8 @@ function openForm(i) {
       const row = [t, Math.max(0, parseInt($("f1").value, 10) || 0)];
       i == null ? d.flotte.bestand.push(row) : d.flotte.bestand[i] = row;
     } else {
-      const e = { t: $("ft").value };
+      const old = i == null ? null : S.get(d)[i];
+      const e = { t: $("ft").value, e: (old && old.e) || new Date().toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" }) };
       $("form").querySelectorAll("[data-k]").forEach(x => { const v = x.value.trim(); if (v) e[x.dataset.k] = v; });
       if (!(e.r || e.w)) return alert("Bitte " + (S.kind === "route" ? "eine Strecke" : "ein Flugzeug") + " eingeben.");
       const L = S.get(d); i == null ? L.unshift(e) : L[i] = e;

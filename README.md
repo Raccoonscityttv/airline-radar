@@ -28,7 +28,7 @@ Eine weitere Airline kommt dazu, indem du eine Datei `data/<kennung>.json` im gl
 
 ## Aktualisierung
 
-Eine wöchentliche geplante Aufgabe recherchiert neu und committet geänderte Dateien in `data/`.
+Eine wöchentliche geplante Aufgabe recherchiert neu und committet nur dann, wenn sich Inhalte geändert haben. „Letzte Änderung“ auf der Seite zeigt daher den Zeitpunkt der letzten inhaltlichen Änderung, nicht der letzten Prüfung. Jeder Eintrag hat das Feld `e` (erfasst am, `TT.MM.JJJJ`). Erledigte Einträge, die nur ein vergangenes Ereignis beschreiben, werden vier Wochen nach `e` entfernt.
 
 ## Einrichtung
 
