@@ -1,7 +1,7 @@
 {
   "id": "sunclass",
   "name": "Sunclass Airlines",
-  "stand": "23.11.2026, 07:46 Uhr",
+  "stand": "23.11.2026, 12:14 Uhr",
   "log": [
     "Erstellt am 19.10.2026. Alle Einträge stammen aus der ersten Recherche.",
     "19.10.2026, 12:54 Uhr: Keine Änderungen",
@@ -19,7 +19,8 @@
     "15.11.2026, 18:14 Uhr: Flotte: A330-300 OY-VKI soll an den Leasinggeber zurück.",
     "09.11.2026, 07:43 Uhr: Keine Änderungen",
     "16.11.2026, 07:41 Uhr: Keine Änderungen",
-    "23.11.2026, 07:46 Uhr: Keine Änderungen"
+    "23.11.2026, 07:46 Uhr: Keine Änderungen",
+    "23.11.2026, 12:14 Uhr: Norwegian-Übernahme: Q3-Bericht vom 28.10.2026 ergänzt (Verfahren läuft planmäßig, Abschluss bis Jahresende angestrebt, EU-Freigabe steht aus)."
   ],
   "routen": {
     "neu": [
@@ -40,7 +41,7 @@
       ["A321-200", 6], ["A321neo", 3], ["A330-900", 3]
     ],
     "plus": [
-      { "t": "chg", "w": "Übernahme durch Norwegian", "d": "angekündigt 16.06.2026", "n": "Norwegian kauft die Nordic Leisure Travel Group mit Sunclass für ca. 7,94 Mrd. SEK. Die außerordentliche Hauptversammlung stimmte der Aktienausgabe am 08.07.2026 zu. Laut Flygbladet (Stand 26.10.2026) steht die Freigabe der EU-Wettbewerbsbehörde aus, der Abschluss wird für das 4. Quartal 2026 angestrebt. Die dänische Betriebsgenehmigung von Sunclass ist öffentlich noch nicht behandelt. Die A330-900 wären Norwegians erste Langstreckenflugzeuge seit der Ausmusterung der 787." },
+      { "t": "chg", "w": "Übernahme durch Norwegian", "d": "angekündigt 16.06.2026", "n": "Norwegian kauft die Nordic Leisure Travel Group mit Sunclass für ca. 7,94 Mrd. SEK. Die außerordentliche Hauptversammlung stimmte der Aktienausgabe am 08.07.2026 zu. Laut Flygbladet (Stand 26.10.2026) steht die Freigabe der EU-Wettbewerbsbehörde aus, der Abschluss wird für das 4. Quartal 2026 angestrebt. Norwegian bestätigt im Q3-Bericht (28.10.2026), dass das Genehmigungsverfahren planmäßig läuft und der Abschluss bis Jahresende angestrebt wird, vorbehaltlich der EU-Freigabe. Eine Entscheidung oder ein genauer Termin ist nicht genannt. Die dänische Betriebsgenehmigung von Sunclass ist öffentlich noch nicht behandelt. Die A330-900 wären Norwegians erste Langstreckenflugzeuge seit der Ausmusterung der 787." },
       { "t": "new", "w": "Weitere A321neo", "d": "laufende Auslieferungen", "n": "Ein A321neo wurde im Juli 2025 von Aviation Capital Group übergeben. Weitere Bestellungen ersetzen die älteren A321-200. Die Zahl offener Bestellungen ist nicht belegt." }
     ],
     "minus": [
@@ -50,6 +51,7 @@
     ]
   },
   "quellen": [
+    ["Norwegian: Q3-Bericht 2026", "https://media.uk.norwegian.com/pressreleases/norwegian-group-with-strong-third-quarter-results-3474779"],
     ["Flygbladet: Sunclass-Affäre", "https://flygbladet.se/tystnaden-efter-sunclass-affaren-borjar-bli-lang/"],
     ["AeroRoutes: Sunclass", "https://www.aeroroutes.com/eng/tag/Sunclass+Airlines"],
     ["AeroRoutes: Sunclass Stockholm – Krabi NW26","https://www.aeroroutes.com/eng/260827-dknw26kbv"],
